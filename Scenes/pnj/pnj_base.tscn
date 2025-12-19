@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3pvalqlvt2cm"]
+
+[ext_resource type="Script" uid="uid://biqtqdp3hk0lo" path="res://Scripts/pnj_base.gd" id="1_rdhvb"]
+[ext_resource type="FontFile" uid="uid://ck6feg3j5qrdx" path="res://assets/fonts/DharmaGothicE_ExBold_R.otf" id="2_b6u2r"]
+[ext_resource type="AudioStream" uid="uid://0v0gggke7h03" path="res://assets/audio/sfx/hurt.wav" id="3_8key8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7r1o1"]
+radius = 0.2
+height = 1.7082093
+
+[node name="PNJ_BASE" type="StaticBody3D" groups=["interacteble"]]
+script = ExtResource("1_rdhvb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.9621929, 0, 0, 0, 0.9621929, 0, 0, 0, 0.9621929, 0, 0.8298738, 0)
+shape = SubResource("CapsuleShape3D_7r1o1")
+
+[node name="Label_pnj" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009864211, 1.8731112, -0.04217899)
+extra_cull_margin = 525.12
+ignore_occlusion_culling = true
+visibility_range_end = 5.0
+pixel_size = 0.004
+billboard = 2
+alpha_cut = 1
+text = "renomé les node parent du skeleton en \"character\" et metter le group mode en main thread et message activé dans la categorie procces du l'animation player"
+font = ExtResource("2_b6u2r")
+autowrap_mode = 2
+
+[node name="neck" type="Marker3D" parent="."]
+unique_name_in_owner = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8key8")

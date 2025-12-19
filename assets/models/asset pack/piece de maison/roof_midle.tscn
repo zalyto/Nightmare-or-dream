@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=4 uid="uid://13nyrsaps5l8"]
+
+[ext_resource type="Shader" uid="uid://pn80x7vapsyx" path="res://shaders/outline.gdshader" id="1_uddfc"]
+[ext_resource type="Shader" uid="uid://tnamnnwd827t" path="res://shaders/cel-shader-base.gdshader" id="2_igoke"]
+[ext_resource type="Texture2D" uid="uid://bsso1xhawjr2g" path="res://assets/textures/roof_tiles_05_1k/roof_tiles_05_baseColor_1k.jpg" id="3_58fhw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ylxg"]
+size = Vector3(8, 1.7, 4)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_73b8b"]
+render_priority = 0
+shader = ExtResource("1_uddfc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e8ke7"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_73b8b")
+shader = ExtResource("2_igoke")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/base_texture = ExtResource("3_58fhw")
+shader_parameter/specular = Color(0, 0, 0, 0.5019608)
+shader_parameter/fresnel = Color(0.080783345, 0.080783345, 0.080783345, 0.3019608)
+shader_parameter/uv_scale = Vector2(1.02, 2.42)
+shader_parameter/uv_offset = Vector2(0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6b72f"]
+resource_name = "Roof shingles_roof medium"
+cull_mode = 2
+albedo_color = Color(0.36628956, 0.2736193, 0.19668743, 1)
+roughness = 0.9045454
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4q42y"]
+resource_name = "WOOD"
+cull_mode = 2
+albedo_color = Color(0.27265033, 0.16470455, 0.078718886, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uddfc"]
+_surfaces = [{
+"aabb": AABB(-3.8146973e-06, 0.16240716, -3.917255, 2.0000057, 3.7578871, 7.83451),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAAAAAABAAEAAAABAAIAAAACAAMABAAFAAUABAAEAAUABAAGAAUABAAHAAYA"),
+"name": "Roof shingles_roof medium",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AYAAAP7///8BgAAA//8AAP//AAAAAAAAAAAAAAAA///9fwAA/v////1/AAD//wAAAAAAAA==")
+}, {
+"aabb": AABB(-3.8146973e-06, 0, -4, 2.0000057, 4.0014434, 8),
+"format": 34896613377,
+"index_count": 120,
+"index_data": PackedByteArray("AAABAAAAAAABAAEAAAABAAIAAAACAAMAAQAEAAIABQAAAAMABQAAAAAABQADAAYABQAAAAUABQAGAAcABQAHAAgABQAFAAgABQAIAAgACAAHAAkACgAJAAQACAAJAAoACAAIAAoACAAKAAoACgAEAAsAAQALAAQACgAKAAsAAQALAAEACgALAAsAAQALAAsADAANAA4ADwAOAA0ADAAQAA0ADwARAA4AEAAMABIAEwARAA8AEAASABMAEwASABEAFAAVABYAFAAXABUAFgAYABQAGQAVABcAFgAaABgAGQAXABsAGgAbABgAGgAZABsA"),
+"name": "WOOD",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("AADX7veCAAAAAP//94IAAP7////3ggAA/v/X7veCAAD+/////38AAAAA1+7/fwAA/v/X7v9/AAD+/9fuB30AAAAA1+4HfQAA/v///wd9AAAAAP//B30AAAAA////fwAA//+hBf//AAAAABUNTPwAAP//FQ1M/AAAAABzB6j4AAAAAKEF//8AAP//cweo+AAA//8AAFv8AAAAAAAAW/wAAP//oQUAAAAAAAAVDbIDAAAAAKEFAAAAAP//FQ2yAwAA//8AAKMDAAAAAHMHVgcAAAAAAACjAwAA//9zB1YHAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rx6jk"]
+resource_name = "modular_medieval_house_Cube_015"
+_surfaces = [{
+"aabb": AABB(-3.8146973e-06, 0.16240716, -3.917255, 2.0000057, 3.7578871, 7.83451),
+"attribute_data": PackedByteArray("qmpZ/QWH+E+qagGASUb4T6pqWf0Fh/hPqmoBgElG+E8AAP//BYf4T/7/AABJRuou/v///wWH6i4AAAAASUb4T6pqpQJWAYrsqmr9fxJCiuyqav1/EkKK7KpqpQJWAYrs/v///1YBiuwAAAAAEkJ8y/7/AAASQorsAAD//1YBfMs="),
+"format": 34896613431,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0A"),
+"material": SubResource("StandardMaterial3D_6b72f"),
+"name": "Roof shingles_roof medium",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAAP///z8AAP//AYD/PwAAAAD//5JPAAD//wGA/z8AAAAA//9rsP7///8BgNeg//8AAP//16AAAP//AYBrsAAAAAAAAP8/AAD///1/azAAAP///X//PwAAAAAAAP8/AAAAAAAA///+/////X///wAA///9f/////8AAAAA//////9/////f////3////9/////f////3////9/////f////3////9/////f////3//f2LM/3+72f9/Ysz/f7vZ")
+}, {
+"aabb": AABB(-3.8146973e-06, 0, -4, 2.0000057, 4.0014434, 8),
+"attribute_data": PackedByteArray("qmr3go9bbY2qaveCj1ttjapq94KPW22Nqmr3go9bbY2qav9/Qlptjapq/39CWm2Nqmr/f0JabY2pqveCj1tacamq/39CWlpxqaoHffVYWnGqagd99VhtjapqB331WG2NqmoHffVYbY2qagd99Vhtjamq/39CWlpxqaoHffVYWnGpqveCj1tacapq94KPW22Nqmr/f0JabY2qagd99VhtjapqY1LivzNsqarOSR68H1CpqmNS4r8fUKpqzkkevDNsqqoJx/sHREuqak/DCgaXbKqqT8MKBkRLqmoJx/sHl2yqav//P+4G0aqqW/x07HSxqmpb/HTsBtGqqv//P+50sapqqPg280LRqqpM/AL1sLGqakz8AvVC0aqqqPg287Cxqmrayf4HDo6qqiDGDQa7bKpqIMYNBg6Oqqrayf4Hu2yqamNSw8MzbKmqzkkAwB9QqmrOSQDAM2ypqmNSw8MfUKqqCcf7B80pqmpPwwoGIEuqagnH+wcgS6qqT8MKBs0pqmoAAITubU+qqqMDUPDcL6qqAACE7twvqmqjA1DwbU+qalYHUPAib6qqsgOE7pBPqqpWB1DwkE+qarIDhO4ib6pq2skw7Bxwqqogxj/qyE6qqtrJMOzITqpqIMY/6hxw"),
+"format": 34896613431,
+"index_count": 120,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABAACAAYABgACAAcABgAHAAgABgAIAAkABgAJAAoABAAGAAoABAAKAAsACwAKAAwACwAMAA0ADQAMAAUADAAOAAUADAAPAA4AAQAFAA4AAQAOABAAEQASAAUAEwAFABIAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkA"),
+"material": SubResource("StandardMaterial3D_4q42y"),
+"name": "WOOD",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("AADX7veC/z8AAP//94L/vwAA1+73gv8/AAD///eC/78AANfu/3//PwAA////f/+/AADX7v9/Ajr+/9fu94L/X/7/1+7/f/8//v/X7gd9/x8AANfuB33/PwAA1+4Hff8/AAD//wd9/78AAP//B33/v/7/////f/+//v///wd9/9/+////94L/nwAA///3gv8/AAD///9//78AAP//B33/PwAA1+73gv+f/v////eC/5/+/9fu94L/nwAA///3guOy//+hBf//qYIAABUNTPxWvf//FQ1M/Fa9AAChBf//qYIAAKEF//9Vff//AABb/FY9AAAAAFv8Vj3//6EF//9VfQAAcweo+FX9//8VDUz8Vb0AABUNTPxVvf//cweo+FX9AAAAAFv8Vj3//3MHqPipAgAAcweo+KkC//8AAFv8Vz0AANfuB33/H/7///8Hff8fAAD//wd95DL+/9fuB33/H///oQUAAKkCAAAVDbIDVz0AAKEFAACpAv//FQ2yA1c9AAChBQAAqQL//wAAowOpQv//oQUAAKkCAAAAAKMDqUIAAHMHVgepgv//FQ2yA6jC//9zB1YHqYIAABUNsgOowgAAAACjA1W9//9zB1YHqYL//wAAowNWvQAAcwdWB6mC////f////3////9/////f////3////9//jn+nAAA/38AAP9/AAD/f////3////9/////f////3////9/////f////3////9/////f////3////9/////fwAA/3////9/AAD/f////3////9/AAD/fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9/AAD/f////3////9/AAD/f////3////9/////fwAA/38AAP9/////fwAA/3////9/AAD/fwAA/38AAP9/AAD/f////3////9/////f////38AAP9/////fwAA/3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_uddfc")
+
+[node name="Roof_midle" type="StaticBody3D"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2, 0)
+visible = false
+shape = SubResource("BoxShape3D_1ylxg")
+
+[node name="Roof_medium segment_014" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, 0, -1.0000001, 0, 1.0000002, 0, -1.0000001, 0, 0, 0, 0, 1)
+material_override = SubResource("ShaderMaterial_e8ke7")
+mesh = SubResource("ArrayMesh_rx6jk")
+skeleton = NodePath("")

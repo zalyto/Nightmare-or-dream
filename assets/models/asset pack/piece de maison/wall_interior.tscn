@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=4 uid="uid://bjlskjjq1fbln"]
+
+[ext_resource type="Material" uid="uid://q0veuugo5sbl" path="res://resources/materials/MAT_wall.tres" id="1_x24v7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xtlan"]
+size = Vector3(0.5465088, 2, 5.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8hmlj"]
+resource_name = "Plastered WALL"
+cull_mode = 2
+albedo_color = Color(0.53423786, 0.48104554, 0.40608358, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tmnya"]
+_surfaces = [{
+"aabb": AABB(-1.1563221, -0.0145590305, -15.993433, 0.15000093, 5.0291157, 1.9868736),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAAAEAAEAAgADAAUAAgAFAAAAAAAGAAQAAAAFAAYABAAHAAEAAQAHAAMABAAGAAcABQADAAcABQAHAAYA"),
+"name": "Plastered WALL",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/v//////AAD+/wAAAAAAAP//AAD//wAAAAAAAP//AAD+////AAAAAAAA/////wAAAAD//wAAAAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7mtbv"]
+resource_name = "modular_medieval_house_Cube_010"
+_surfaces = [{
+"aabb": AABB(-1.1563221, -0.0145590305, -15.993433, 0.15000093, 5.0291157, 1.9868736),
+"attribute_data": PackedByteArray("zsg9gw+A//////////888M7I//////7///89gw+APPDOyD2DD4D//////////zzw//89gw+APPDOyP/////+/87I//////7/zsg9gw+A///OyD2DD4D//87I//////7/////////PPDOyP/////+/87I//////7/////////PPDOyD2DD4D/////PYMPgDzw//89gw+APPDOyD2DD4D/////PYMPgDzw////////PPD///////888P//PYMPgDzw"),
+"format": 34896613431,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_8hmlj"),
+"name": "Plastered WALL",
+"primitive": 3,
+"uv_scale": Vector4(1.274831, 2.0519729, 0.46974227, 1.0479783),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/v///////7/+/wAAAAD/v///AAD///+//v///wAA/78AAP////8AAAAAAAAAAAAAAAD//wAAAAAAAAAA//8AAP//AAD///5/AAD//////n/+///////+fwAAAAD///5//v8AAAAA/z8AAAAA////P///AAD///8/AAAAAAAA/z/+////////PwAA//8AAP8//v///wAA/z8AAP//////P/7///8AAAAAAAAAAAAAAAD+/wAAAAAAAAAA//8AAAAA/38AAP9/AAD/fwAA/38AAP8//3//P/9//z//f/8//3//f////3////9/////f///AAD/fwAA/38AAP9/AAD/f////3////9/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_tmnya")
+
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_gefjc"]
+size = Vector3(0.15035571, 5.0859823, 2.1902323)
+
+[node name="wall_interior" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.155, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.5, 0)
+visible = false
+shape = SubResource("BoxShape3D_xtlan")
+
+[node name="LowerWall_5x2_003" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 1.0999998, 0.9999997, 0, 16.504316)
+material_override = ExtResource("1_x24v7")
+mesh = SubResource("ArrayMesh_7mtbv")
+skeleton = NodePath("")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999999, -0.07896099, 2.4977443, 0)
+occluder = SubResource("BoxOccluder3D_gefjc")

@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://di1yncnaa65eb"]
+
+[ext_resource type="Script" uid="uid://wk5s1y30mct" path="res://Scripts/check_button_full_screen.gd" id="1_0ug46"]
+[ext_resource type="Theme" uid="uid://dm4cuttmnq77h" path="res://resources/Themes/UI.tres" id="1_m48ax"]
+[ext_resource type="Script" uid="uid://dw4iinilmg4ox" path="res://Scripts/select_langue.gd" id="2_m48ax"]
+[ext_resource type="Script" uid="uid://u4s22cgr1865" path="res://Scripts/bouton.gd" id="3_jk4np"]
+
+[node name="option" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 312.0
+offset_top = 72.0
+offset_right = -47.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_m48ax")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.5
+offset_top = 8.0
+offset_right = 56.5
+offset_bottom = 58.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "OPTION"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="CheckButton_full_screen" type="CheckButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "FULL_SCREEN"
+script = ExtResource("1_0ug46")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 37
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "Langue :"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "Français"
+popup/item_0/id = 0
+popup/item_1/text = "English"
+popup/item_1/id = 1
+popup/item_2/text = "Japanese"
+popup/item_2/id = 2
+popup/item_2/disabled = true
+script = ExtResource("2_m48ax")
+
+[node name="back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -56.0
+offset_right = 87.0
+offset_bottom = -16.0
+grow_vertical = 0
+text = "BACK"
+script = ExtResource("3_jk4np")
+
+[connection signal="toggled" from="MarginContainer/VBoxContainer/CheckButton_full_screen" to="MarginContainer/VBoxContainer/CheckButton_full_screen" method="_on_toggled"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/HBoxContainer/OptionButton" to="MarginContainer/VBoxContainer/HBoxContainer/OptionButton" method="_on_item_selected"]
+[connection signal="mouse_entered" from="back" to="back" method="_on_mouse_entered"]

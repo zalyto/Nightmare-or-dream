@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=4 uid="uid://ykq0e2ydrp3l"]
+
+[ext_resource type="PackedScene" uid="uid://b1lmnvw6snyte" path="res://assets/models/asset pack/piece de maison/simple_door.tscn" id="2_udj5u"]
+[ext_resource type="Material" uid="uid://q0veuugo5sbl" path="res://resources/materials/MAT_wall.tres" id="3_sog4u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ptx1q"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ee8q0"]
+_surfaces = [{
+"aabb": AABB(-1.9861045, 0.013542116, -0.2814579, 3.9722009, 4.980148, 0.25000572),
+"format": 34896613377,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAADAAQABAAFAAAAAAAFAAEABAAGAAUABgAEAAMABwAFAAYABwABAAUABgADAAcAAQAIAAIAAwACAAkACQACAAgAAwAKAAcAAwAJAAoABwALAAEAAQALAAgABwAKAAsADAAIAAsACwAKAAwACQAIAA0ADAANAAgACQANAA4ADAAKAA8ACQAPAAoADQAMAA8ACQAOAA8ADQAPAA4A"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("51EAAAAAAADnUfaB//8AAOdR9oEAAAAAAAD//wAAAAAAAAAAAAAAAOdRAAD//wAAAAAAAP//AAAAAP///f8AAGCu9oEAAAAA/////wAAAAD//////f8AAGCu9oH//wAAYK4AAP//AABgrgAAAAAAAP//AAAAAAAA//8AAP//AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7tmet"]
+resource_name = "modular_medieval_house_Cube_011"
+_surfaces = [{
+"aabb": AABB(-1.9861045, 0.013542116, -0.2814579, 3.9722009, 4.980148, 0.25000572),
+"format": 34896613383,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUABAAIAAcABAAJAAgACAAJAAoACgAJAAsADAANAA4ADAAPAA0ADAAQAA8AEQAQAAwAEAARABIAEgARABMAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0A"),
+"material": SubResource("StandardMaterial3D_ptx1q"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("51EAAAAA///nUfaB/////+dR9oEAAP//51EAAP////8AAP///f//v+dRAAD///+/AAAAAP///7/nUfaB////v2Cu9oH///+///////3//79grgAA////v///AAD///+//////wAA//9grgAAAAD/////AAAAAP//YK72gQAA///nUfaBAAD//wAA//8AAP//51EAAAAA//8AAAAAAAD//wAAAAD///+/AAD//wAA/78AAP///f//vwAAAAAAAP+/AAAAAAAA///nUQAA/////+dRAAAAAP//AAAAAP////9grgAAAAD/////AAD///////8AAAAA//9grgAA//////////8AAP////8AAP///////////f//////AAAAAP//51H2gf////9grvaBAAD//+dR9oEAAP//YK72gf////9grgAA////v2Cu9oEAAP+/YK72gf///79grgAAAAD/vwAA//8AAP////////3///8AAP///f////////8AAP///7//f/+//3//v/9//7//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//z//v/8//7//P/+//z//v/8//7//P/+//z//v/8//7//f////3////9/////f////3//P/9//z//f/8//3//P/9//z//f/8//3//P/9//z//v/9//7//f/+//3//v/9//3//P/9//z//f/8//3//P/9/////f////3////9/////f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ee8q0")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v0wb3"]
+size = Vector3(0.5, 2.5, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t84ms"]
+size = Vector3(0.5, 2.5, 1.3000001)
+
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_6funh"]
+size = Vector3(0.24954808, 5.0859823, 1.339733)
+
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_e62je"]
+size = Vector3(0.24954808, 2.4709282, 2.9124365)
+
+[node name="wall_door_interior" type="StaticBody3D"]
+
+[node name="LowerWall_5x4_door_lowered_003" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.3841858e-07, 0, -4.371139e-08)
+material_override = ExtResource("3_sog4u")
+mesh = SubResource("ArrayMesh_7tmet")
+skeleton = NodePath("")
+
+[node name="door" parent="LowerWall_5x4_door_lowered_003" instance=ExtResource("2_udj5u")]
+transform = Transform3D(-4.3711385e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -4.3711385e-08, -0.72063696, 0.02454859, -0.21652701)
+locked = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.123499975, 3.7499998, 0)
+visible = false
+shape = SubResource("BoxShape3D_v0wb3")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.123499975, 1.2499998, 1.3499999)
+visible = false
+shape = SubResource("BoxShape3D_t84ms")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.123499975, 1.2499998, -1.3500001)
+visible = false
+shape = SubResource("BoxShape3D_t84ms")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+transform = Transform3D(0.9152348, 0, 0, 0, 1, 0, 0, 0, 1, -0.15912011, 2.497745, -1.3345286)
+occluder = SubResource("BoxOccluder3D_6funh")
+
+[node name="OccluderInstance3D2" type="OccluderInstance3D" parent="."]
+transform = Transform3D(0.9152348, 0, 0, 0, 1, 0, 0, 0, 1, -0.15912011, 2.497745, 1.309534)
+occluder = SubResource("BoxOccluder3D_6funh")
+
+[node name="OccluderInstance3D3" type="OccluderInstance3D" parent="."]
+transform = Transform3D(0.9152348, 0, 0, 0, 1, 0, 0, 0, 1, -0.15912011, 3.7927446, 0.052716136)
+occluder = SubResource("BoxOccluder3D_e62je")

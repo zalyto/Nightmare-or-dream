@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://djlf256vcwcqq"]
+
+[ext_resource type="Texture2D" uid="uid://flldwuhtdvhp" path="res://assets/textures/StylizedFire/HoleNoise.png" id="3_tg5uj"]
+[ext_resource type="Texture2D" uid="uid://bko6oayqcslrd" path="res://assets/textures/StylizedFire/FireMask.png" id="4_58wat"]
+[ext_resource type="Shader" uid="uid://cm63vd5bt4dsy" path="res://Shaders/stylized_fire.gdshader" id="5"]
+
+[sub_resource type="ShaderMaterial" id="1"]
+render_priority = 0
+shader = ExtResource("5")
+shader_parameter/noise_texture = ExtResource("3_tg5uj")
+shader_parameter/texture_mask = ExtResource("4_58wat")
+shader_parameter/emission_intensity = 2.0
+shader_parameter/time_scale = 3.0
+shader_parameter/texture_scale = Vector2(1, 1)
+shader_parameter/edge_softness = 0.1
+
+[sub_resource type="Gradient" id="2"]
+colors = PackedColorArray(0.980957, 0.801817, 0, 1, 1, 0, 0.447059, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p6lip"]
+gradient = SubResource("2")
+width = 128
+
+[sub_resource type="Curve" id="4"]
+_data = [Vector2(0, 0), 0.0, 3.65289, 0, 0, Vector2(0.556561, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_r2m7j"]
+width = 128
+curve = SubResource("4")
+
+[sub_resource type="ParticleProcessMaterial" id="6"]
+lifetime_randomness = 0.81
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 0.5
+initial_velocity_max = 0.5
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 4.0
+linear_accel_max = 4.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_r2m7j")
+color_ramp = SubResource("GradientTexture2D_p6lip")
+
+[sub_resource type="QuadMesh" id="7"]
+size = Vector2(0.5, 0.5)
+
+[node name="StylizedFireDemo" type="Node3D"]
+
+[node name="Fire" type="GPUParticles3D" parent="."]
+material_override = SubResource("1")
+cast_shadow = 0
+amount = 50
+randomness = 0.74
+draw_order = 1
+process_material = SubResource("6")
+draw_pass_1 = SubResource("7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Fire"]
+light_color = Color(1, 0.901961, 0.560784, 1)
+light_energy = 2.0

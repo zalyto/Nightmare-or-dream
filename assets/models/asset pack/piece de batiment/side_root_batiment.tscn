@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=4 uid="uid://c0r1xr0l14thu"]
+
+[ext_resource type="Material" uid="uid://q0veuugo5sbl" path="res://resources/materials/MAT_wall.tres" id="1_ckpm0"]
+[ext_resource type="Material" uid="uid://b3uhrde53umn7" path="res://resources/materials/MAT_wall_wood.tres" id="2_7iij1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_txdgq"]
+resource_name = "_0048_PaleGoldenrod"
+cull_mode = 2
+albedo_color = Color(0.9701036, 0.9592555, 0.836007, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ku8yp"]
+_surfaces = [{
+"aabb": AABB(0, -0.2999999, -1.1547004, 2, 0.29999998, 1.1547004),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEABAACAAAABAABAAMAAAAFAAMABQAEAAMABAAAAAUA"),
+"name": "_0048_PaleGoldenrod",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("//8AAP//AAD//wAAAAAAAAAAAAD//wAA/////wAAAAAAAP7///8AAP///v///wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_liq2o"]
+resource_name = "3D Retro Medieval Fantasy Kit_ID262"
+_surfaces = [{
+"aabb": AABB(0, -0.2999999, -1.1547004, 2, 0.29999998, 1.1547004),
+"attribute_data": PackedByteArray("////////+FiSJP//kiQE3v//n7L//wTekiSfsk/H//9lpvhYT8f4WGWm////////kiT/////+FiSJATe//+fsv//BN6SJJ+y"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUAAwAGAAQABwAIAAkABwAKAAgACwAMAA0ADgAPABAADgARAA8A"),
+"material": SubResource("StandardMaterial3D_txdgq"),
+"name": "_0048_PaleGoldenrod",
+"primitive": 3,
+"uv_scale": Vector4(2.3333333, 1.7698003, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("//8AAP///z///wAAAAD/PwAAAAD///8/AAD+/////////wAAAAD///////8AAP//AAAAAP///////wAA//9U1f////8AAFTV//8AAAAAVNX///7///9U1f///v////+/AAD+/////7//////AAD/vwAA/v////////8AAP////////7//////wAAAAD/////AAD/fwAA/38AAP9///8Mm///DJv//wyb//8Mm6qqVFWqqlRVqqpUVaqqVFX///9/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ku8yp")
+
+[sub_resource type="BoxMesh" id="BoxMesh_2mhla"]
+
+[sub_resource type="PolygonOccluder3D" id="PolygonOccluder3D_7iij1"]
+polygon = PackedVector2Array(0.0040038563, 1.1537533, 2.2338753, -0.1330181, -2.233859, -0.14101061)
+
+[node name="side_roof_batiment" type="Node3D"]
+
+[node name="Mesh_side_roof_batiment" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -2, 0, 0)
+material_override = ExtResource("1_ckpm0")
+mesh = SubResource("ArrayMesh_liq2o")
+skeleton = NodePath("")
+
+[node name="Mesh_side_roof_batiment2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 8.742278e-08, 0, 0, 0, -1, -8.742278e-08, -1, 0, 2, 0, -0.3)
+material_override = ExtResource("1_ckpm0")
+mesh = SubResource("ArrayMesh_liq2o")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-6.29444e-09, 0, -3.9879296, -0.14400002, 0, 1.7431796e-07, 0, 0.37699208, 0, 0, -0.06468823, -0.14214747)
+material_override = ExtResource("2_7iij1")
+mesh = SubResource("BoxMesh_2mhla")
+skeleton = NodePath("../../Wall B")
+
+[node name="OccluderInstance3D2" type="OccluderInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.14616239)
+occluder = SubResource("PolygonOccluder3D_7iij1")

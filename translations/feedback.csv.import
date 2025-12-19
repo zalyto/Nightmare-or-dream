@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bpho848y1bl7o"
+
+[deps]
+
+files=["res://translations/feedback.fr.translation", "res://translations/feedback.en.translation"]
+
+source_file="res://translations/feedback.csv"
+dest_files=["res://translations/feedback.fr.translation", "res://translations/feedback.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0

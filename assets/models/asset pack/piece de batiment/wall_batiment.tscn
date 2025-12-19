@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=4 uid="uid://bqytd1qbej1eo"]
+
+[ext_resource type="Material" uid="uid://q0veuugo5sbl" path="res://resources/materials/MAT_wall.tres" id="1_08xl3"]
+[ext_resource type="Material" uid="uid://dki5x1vxhlxvd" path="res://resources/materials/Stone2.tres" id="2_08xl3"]
+[ext_resource type="Material" uid="uid://b3uhrde53umn7" path="res://resources/materials/MAT_wall_wood.tres" id="3_inwxr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nsyn6"]
+size = Vector3(2, 3.5, 0.5)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xdear"]
+_surfaces = [{
+"aabb": AABB(0, -0.39999986, -2.5, 2, 0.30000004, 1.3999999),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAAAEAAMAAgAFAAAAAAAFAAQAAgAGAAUABgAEAAUABgACAAEABgAHAAQABgABAAcA"),
+"name": "_0048_PaleGoldenrod.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAD//wAAAAAAAAAA//8AAAAAAAAAAAAAAAD+////AAD///7///8AAP////8AAAAA//8AAAAAAAD//wAA//8AAA==")
+}, {
+"aabb": AABB(0, -0.5000001, -1.1000001, 2.0000002, 0.5000002, 2.1000001),
+"format": 34896613377,
+"index_count": 54,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAAACAAMAAQAEAAMAAwAEAAUABAABAAYAAwAFAAcAAAADAAcABQAAAAcACAAAAAUABgABAAkACgAIAAYACgAGAAkAAQAKAAkAAAAIAAoAAQALAAoAAAAKAAsAAAALAAEA"),
+"name": "_0125_Plum.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("///+////AAAAAAAA//8AAAAA/v///wAAAAD//wAAAAAAAMzMAAAAAP//zMwAAAAAAAAzMwAAAAD/////AAAAAP//MzMAAAAAAAAAAAAAAAD//wAAAAAAAP//AAD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_x2cxl"]
+resource_name = "3D Retro Medieval Fantasy Kit_ID624"
+_surfaces = [{
+"aabb": AABB(0, -0.39999986, -2.5, 2, 0.30000004, 1.3999999),
+"attribute_data": PackedByteArray("///Wo1qwjsL//47CWrDWo41jjsJU1dajjWPWo1TVjsJU1QAAjWNbj1TVW4+NYwAAjWMAAFTVW4+NY1uPVNUAAP//jsJasNaj///Wo1qwjsI="),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"material": ExtResource("1_08xl3"),
+"name": "_0048_PaleGoldenrod.002",
+"primitive": 3,
+"uv_scale": Vector4(4.5, 2.5, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAD//wAAAAAAAAAA//8AAAAAAAAAAAAAAAD+////AAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAAAAP//AAAAAP8/AAAAAP///z///wAA////PwAAAAAAAP8/AAD//wAA/7////7/////vwAA/v////+//////wAA/7///wAAAAD/v////v////+//////wAA/7///wAA////v/8//3//P/9//z//f/8//3////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f////3////9/////f////3//fwAA/38AAP9/AAD/fwAA")
+}, {
+"aabb": AABB(0, -0.5000001, -1.1000001, 2.0000002, 0.5000002, 2.1000001),
+"attribute_data": PackedByteArray("//84jlRVqqpUVTiO//+qqv////9UVYeI//+HiFRV//9VFaqqh8g4jlUVOI6HyOiTh8j5pIfIqapUVf////+HiFRVh4j/////VRU4jofIqapVFaqqh8j5pIfI6JOHyDiOVFU4jv//6JP//ziOVFXok///qapUVfmkVFWpqv//+aQ="),
+"format": 34896613399,
+"index_count": 54,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkACwAIAAwADAAIAA0ADgAPABAADgARAA8AEgATABQAEgAVABMAFQASABYAFgASABcAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0A"),
+"material": ExtResource("2_08xl3"),
+"name": "_0125_Plum.002",
+"primitive": 3,
+"uv_scale": Vector4(3.0000002, 4.5, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("///+////AIAAAAAA//8AgAAA/v///wCA//8AAP//AID///7/////vwAA//8AAP+//////wAA/78AAP7/////vwAAAAD//wAAAAD//wAAAAAAAP7///8AAAAAzMwAAAAAAAAzMwAAAAAAAAAAAAAAAAAAAAD///8///8AAAAA/z8AAAAAAAD/P///AAD///8////+/////7///wAAAAD/v///AAD///+///8zMwAA/7///8zMAAD/v/////8AAP+/AAD//wAAAAD//8zMAAAAAP////8AAAAAAADMzAAAAAD//wAAAAAAAAAAMzMAAAAAAAAAAAAAAAD//zMzAAAAAP9/////f////3////9///////9/////f////3////9//z//f/8//3//P/9//z//f/8//3//P/9/AAD/fwAA/38AAP9/AAD/f/9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP///3////9/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xdear")
+
+[sub_resource type="BoxMesh" id="BoxMesh_inwxr"]
+
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_inwxr"]
+size = Vector3(0.24954808, 3.5579743, 2.401551)
+
+[node name="wall_batiment" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, -0.25)
+visible = false
+shape = SubResource("BoxShape3D_nsyn6")
+
+[node name="Wall B" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -1, 1, 0)
+mesh = SubResource("ArrayMesh_x2cxl")
+skeleton = NodePath("")
+
+[node name="bois" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.2, 0, 0, 0, 1, 0, -0.7, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bois"]
+transform = Transform3D(0.48, 0, 0, 0, 0, -3.6108801, 0, 0.52360004, 0, -1, 1.7313794, -0.24803644)
+material_override = ExtResource("3_inwxr")
+mesh = SubResource("BoxMesh_inwxr")
+skeleton = NodePath("../../Wall B")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="bois"]
+transform = Transform3D(0.48, 0, 0, 0, 0, -3.6108801, 0, 0.52360004, 0, 1, 1.7313794, -0.24803644)
+material_override = ExtResource("3_inwxr")
+mesh = SubResource("BoxMesh_inwxr")
+skeleton = NodePath("../../Wall B")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.7646666, 0)
+occluder = SubResource("BoxOccluder3D_inwxr")

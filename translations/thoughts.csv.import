@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dwfvfim4lpf"
+
+[deps]
+
+files=["res://translations/thoughts.fr.translation", "res://translations/thoughts.en.translation"]
+
+source_file="res://translations/thoughts.csv"
+dest_files=["res://translations/thoughts.fr.translation", "res://translations/thoughts.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0
