@@ -52,6 +52,11 @@ expand_margin_right = 20.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jrun"]
 bg_color = Color(0.12, 0.12, 0.12, 0.60784316)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0.46666667)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -84,7 +89,7 @@ expand_margin_left = 20.0
 expand_margin_right = 20.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6y8t"]
-bg_color = Color(0, 0, 0, 0.5254902)
+bg_color = Color(0, 0, 0, 0.6784314)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1

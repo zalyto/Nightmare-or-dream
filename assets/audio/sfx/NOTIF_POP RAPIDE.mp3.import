@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blyu55x55oe3o"
+path="res://.godot/imported/NOTIF_POP RAPIDE.mp3-c42579a31d9c3ccecdf4e3830f75c564.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/NOTIF_POP RAPIDE.mp3"
+dest_files=["res://.godot/imported/NOTIF_POP RAPIDE.mp3-c42579a31d9c3ccecdf4e3830f75c564.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

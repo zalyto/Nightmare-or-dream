@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cv14t4tbnlehs"
+path="res://.godot/imported/Agnes.dialogue-447a091fa75b16bbbed93c76d80dee42.tres"
+
+[deps]
+
+source_file="res://dialog/pnj/Agnes.dialogue"
+dest_files=["res://.godot/imported/Agnes.dialogue-447a091fa75b16bbbed93c76d80dee42.tres"]
+
+[params]
+
+defaults=true

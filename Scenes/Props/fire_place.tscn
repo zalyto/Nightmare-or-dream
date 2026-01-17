@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=4 uid="uid://chkobs07wxb2g"]
+[gd_scene load_steps=17 format=4 uid="uid://chkobs07wxb2g"]
 
 [ext_resource type="Material" uid="uid://bekop88d10ubu" path="res://resources/materials/metal.tres" id="1_71s6f"]
 [ext_resource type="Shader" uid="uid://cm63vd5bt4dsy" path="res://shaders/stylized_fire.gdshader" id="2_7x4qf"]
 [ext_resource type="Material" uid="uid://b3uhrde53umn7" path="res://resources/materials/MAT_wall_wood.tres" id="2_bs5jg"]
 [ext_resource type="Texture2D" uid="uid://flldwuhtdvhp" path="res://assets/textures/StylizedFire/HoleNoise.png" id="3_71s6f"]
 [ext_resource type="Texture2D" uid="uid://bko6oayqcslrd" path="res://assets/textures/StylizedFire/FireMask.png" id="4_bs5jg"]
+[ext_resource type="AudioStream" uid="uid://cfbcfgdkjs7mx" path="res://assets/audio/sfx/small_fire.mp3" id="6_bs5jg"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0jy37"]
 _surfaces = [{
@@ -70,8 +71,8 @@ shader = ExtResource("2_7x4qf")
 shader_parameter/noise_texture = ExtResource("3_71s6f")
 shader_parameter/texture_mask = ExtResource("4_bs5jg")
 shader_parameter/emission_intensity = 2.0
-shader_parameter/time_scale = 3.365
-shader_parameter/texture_scale = Vector2(2, 2)
+shader_parameter/time_scale = 3.0
+shader_parameter/texture_scale = Vector2(2, 1)
 shader_parameter/edge_softness = 0.1
 
 [sub_resource type="Gradient" id="Gradient_vqqi7"]
@@ -134,4 +135,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39559835, 0)
 light_color = Color(1, 0.766, 0.45999998, 1)
 light_energy = 2.0
 shadow_enabled = true
-omni_range = 5.196196
+omni_range = 3.0714238
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41884017, -0.009803191)
+stream = ExtResource("6_bs5jg")
+attenuation_model = 1
+volume_db = -10.0
+autoplay = true
+max_distance = 5.0
+bus = &"effect"

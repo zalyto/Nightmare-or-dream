@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bdc3lyev8cf1w"
+path="res://.godot/imported/Biere-nard.dialogue-4a9f7e1696e836f0a8edb3c62be76464.tres"
+
+[deps]
+
+source_file="res://dialog/pnj/Biere-nard.dialogue"
+dest_files=["res://.godot/imported/Biere-nard.dialogue-4a9f7e1696e836f0a8edb3c62be76464.tres"]
+
+[params]
+
+defaults=true

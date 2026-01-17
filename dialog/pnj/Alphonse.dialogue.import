@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://du6qegsvxlxvx"
+path="res://.godot/imported/Alphonse.dialogue-cc6b93c09806c8b21757c04f56e49e2f.tres"
+
+[deps]
+
+source_file="res://dialog/pnj/Alphonse.dialogue"
+dest_files=["res://.godot/imported/Alphonse.dialogue-cc6b93c09806c8b21757c04f56e49e2f.tres"]
+
+[params]
+
+defaults=true

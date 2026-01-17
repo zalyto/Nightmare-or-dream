@@ -5,33 +5,62 @@ var tween = create_tween()
 var coldown : Timer
 @export var locked = false
 @export var cles_requise : String
-@export var feedback : String
+
+
+@export_group("locked")
 @export var add_objective_if_is_locked : String
+@export var is_locked_story_states : int = 0
+@export var feedback : String
+
+@export_group("unlocked")
 @export var add_objective_if_is_unlocked : String
-@export var is_locked_story_states : int
-@export var is_unlocked_story_states : int
+@export var is_unlocked_story_states : int = 0
+
+@export_group("open")
+@export var is_open_story_states : int = 0
+@export var is_open_feedback : String
+@export var add_objective_if_is_open : String
 
 @onready var audio_open: AudioStreamPlayer3D = $audio_open
 @onready var audio_close: AudioStreamPlayer3D = $audio_close
 @onready var audio_locked: AudioStreamPlayer3D = $audio_locked
+@onready var audio_unlocking: AudioStreamPlayer3D = $audio_unlocking
+
 
 func _ready() -> void:
 	coldown = Timer.new()
 	add_child(coldown)
 	coldown.one_shot = true
 	coldown.wait_time = 0.8
+	
 
 var is_shaking: bool = false
 
 func interact():
 
 	if Inventory.has_item(cles_requise):
-		locked = false
+		audio_unlocking.play()
 		Inventory.remove_item(cles_requise)
+		await get_tree().create_timer(1.0).timeout
+		locked = false
+		
+		# quand on deverouille la porte changer le story state
+		if is_unlocked_story_states != 0:
+			StoryStates.states = is_unlocked_story_states
 		
 		# quand on deverouille la porte ajouté un nouvelle objectif
 		if add_objective_if_is_unlocked != "":
 			Ui.new_objectif(add_objective_if_is_unlocked)
+			
+	#on change le story state si on ouvre la porte ou la ferme
+	if is_open_story_states != 0 and StoryStates.states == is_open_story_states - 1:
+		StoryStates.states = is_open_story_states
+		
+	if add_objective_if_is_open != "":
+			Ui.new_objectif(add_objective_if_is_open)
+	
+	if is_open_feedback != "":
+		Soutitre.show_thought(is_open_feedback, 5)
 		
 	if locked:
 		# si la porte est verrouiller changer le story states
@@ -64,11 +93,7 @@ func interact():
 				is_shaking = false
 				)
 		return
-		
-		
-	else:
-		if is_unlocked_story_states != 0:
-			StoryStates.states = is_unlocked_story_states
+
 
 	print("Interaction avec une porte")
 	rotate_door()

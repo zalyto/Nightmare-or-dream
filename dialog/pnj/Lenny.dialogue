@@ -1,0 +1,22 @@
+~ start
+Lenny Barre: Salut gamin ! Tu veux des plantes ou juste des questions ?
+~ question
+- Avez-vous vu quelqu’un de suspect ? 🌿
+	Moi: T’as vu quelqu’un de bizarre ?
+	Lenny Barre: Eh bien… oui, j’ai vendu des herbes à un homme étrange hier soir… il avait l’air pressé.
+	Moi: Intéressant, merci.
+	=> question
+- Que savez-vous du kidnapping ? 😟
+	Moi: Tu sais ce qui s’est passé ?
+	Lenny Barre: Pas trop… juste que tout le monde en parle. Faut se méfier de certaines personnes, hein.
+	Moi: Oui, je comprends.
+	=> question
+- Vous avez des plantes utiles pour l’enquête ? 🌱
+	Moi: Tu aurais quelque chose d’utile à me vendre ?
+	Lenny Barre: Peut-être… certaines plantes aident à voir clair… mais pas toutes. Attention à ce que tu prends !
+	Moi: Haha, je ferai attention.
+	=> question
+- Au revoir ! ➜] 
+	Moi: Je dois y aller.
+	Lenny Barre: À plus, petit aventurier.
+	=> END

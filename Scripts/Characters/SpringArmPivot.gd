@@ -16,6 +16,11 @@ extends Node3D
 @export var strafe_tilt_amount : float = 5.0
 @export var strafe_tilt_speed : float = 8.0
 
+
+@export var camera_smoothness : float = 20.0
+var target_rot_x : float = 0.0
+var target_rot_y : float = 0.0
+
 const CAMERA_BLEND : float = 0.05
 
 @onready var spring_arm: Node3D = $"."
@@ -30,11 +35,8 @@ var time_passed : float = 0.0
 var was_on_floor : bool = true
 
 var smoothed_tilt : float = 0.0
-
-func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
-	
+func _ready() -> void:
+	target_rot_y = player.rotation.y
 func _input(event):
 	if event is InputEventMouseMotion:
 		mouse_motion = event.relative
@@ -43,12 +45,15 @@ func _process(delta):
 	if player.in_cinematique:
 		return
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		player.rotate_y(deg_to_rad(-mouse_motion.x * mouse_sensitivity))
+		target_rot_y -= deg_to_rad(mouse_motion.x * mouse_sensitivity)
+		target_rot_x += deg_to_rad(mouse_motion.y * mouse_sensitivity)
 		
-		var new_rotation_x = spring_arm.rotation.x + deg_to_rad(mouse_motion.y * mouse_sensitivity)
+		var limite = deg_to_rad(camera_vertical_limit_deg)
+		target_rot_x = clamp(target_rot_x, -limite, limite)
+		
+	player.rotation.y = lerp_angle(player.rotation.y, target_rot_y, camera_smoothness * delta)
+	spring_arm.rotation.x = lerp(spring_arm.rotation.x, target_rot_x, camera_smoothness * delta)
 
-		spring_arm.rotation.x = clamp(new_rotation_x, deg_to_rad(-camera_vertical_limit_deg), deg_to_rad(camera_vertical_limit_deg))
-	
 	mouse_motion = Vector2.ZERO
 	
 	# 1. Mouvement de tête (head bobbing)
@@ -72,8 +77,11 @@ func _process(delta):
 		# Retourne à la position neutre quand le joueur s'arrête
 		camera.position = camera.position.lerp(Vector3.ZERO, delta * 5.0)
 		
+	
 		# Inclinaison (strafe)
-	var input = Input.get_axis("right", "left")
+	var input := 0.0
+	if not player.in_cinematique and not Ui.in_dialog:
+		input = Input.get_axis("right", "left")
 	var target_tilt = deg_to_rad(input * strafe_tilt_amount)
 	smoothed_tilt = lerp(smoothed_tilt, target_tilt, delta * strafe_tilt_speed)
 	camera.rotation.z = smoothed_tilt
@@ -82,7 +90,7 @@ func _process(delta):
 var last_fall_speed = 0.0
 
 func _physics_process(_delta):
-	if player.in_cinematique:
+	if player.in_cinematique or Ui.in_dialog:
 		return
 	# D'abord, on met à jour la vitesse de chute de la frame précédente
 	# C'est la vitesse que l'on va utiliser pour le test
@@ -108,7 +116,7 @@ func _physics_process(_delta):
 	# Le FOV (Champ de vision) peut rester ici
 	if change_fov_on_run:
 		if owner.is_on_floor():
-			if Input.is_action_pressed("run"):
+			if Input.is_action_pressed("run") and !player.in_interior:
 				camera.fov = lerp(camera.fov, run_fov, CAMERA_BLEND)
 			else:
 				camera.fov = lerp(camera.fov, normal_fov, CAMERA_BLEND)

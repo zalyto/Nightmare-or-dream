@@ -13,4 +13,5 @@ var states : int = 0
 	
 """
 func _process(_delta: float) -> void:
-	print(states)
+	#print(states)
+	pass

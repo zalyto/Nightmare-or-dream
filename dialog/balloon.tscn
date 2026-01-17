@@ -1,0 +1,394 @@
+[gd_scene load_steps=25 format=3 uid="uid://cpx1kyala7pav"]
+
+[ext_resource type="Script" uid="uid://bfrici6b4qlqt" path="res://dialog/balloon.gd" id="1_36de5"]
+[ext_resource type="FontFile" uid="uid://des7b685pnefl" path="res://assets/fonts/Cinzel-SemiBold.ttf" id="2_1vlso"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="FontFile" uid="uid://c26rj3bh35qi4" path="res://assets/fonts/MontserratAlternates-Regular.otf" id="4_1vlso"]
+[ext_resource type="Script" uid="uid://u4s22cgr1865" path="res://Scripts/bouton.gd" id="4_nily6"]
+[ext_resource type="AudioStream" uid="uid://d2wps5e87uify" path="res://assets/audio/sfx/JDSherbert - Ultimate UI SFX Pack - Cursor - 4.mp3" id="5_b42tu"]
+[ext_resource type="AudioStream" uid="uid://bce7y3sokk3kx" path="res://assets/audio/sfx/INTERFACE_BUBBLE.mp3" id="5_do0et"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.329412, 0.329412, 0.329412, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri4m3"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0njw"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkmqt"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_qq3yp"]
+default_font_size = 20
+Button/styles/disabled = SubResource("StyleBoxFlat_spyqn")
+Button/styles/focus = SubResource("StyleBoxFlat_ri4m3")
+Button/styles/hover = SubResource("StyleBoxFlat_e0njw")
+Button/styles/normal = SubResource("StyleBoxFlat_e0njw")
+MarginContainer/constants/margin_bottom = 15
+MarginContainer/constants/margin_left = 30
+MarginContainer/constants/margin_right = 30
+MarginContainer/constants/margin_top = 15
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vlso"]
+bg_color = Color(0, 0, 0, 0.8235294)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxkot"]
+bg_color = Color(0.13, 0.13, 0.13, 0.49411765)
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+shadow_color = Color(0, 0, 0, 0.69411767)
+
+[sub_resource type="Animation" id="Animation_nlsx6"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Progress:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_qkmqt"]
+resource_name = "progress"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Progress:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.2, -0.0157438, -4, -0.2, 0.0112069, 0.25, 0, -4, -0.25, 0, 0.25, 0, 0, -0.2, 0.00299701, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.5, 0.6, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1337t"]
+_data = {
+&"RESET": SubResource("Animation_nlsx6"),
+&"progress": SubResource("Animation_qkmqt")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b42tu"]
+bg_color = Color(0, 0, 0, 0.56078434)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nily6"]
+bg_color = Color(0, 0, 0, 0.56078434)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do0et"]
+bg_color = Color(0, 0, 0, 0)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="Animation" id="Animation_do0et"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Balloon/CanvasLayer/Control/TextureRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Balloon/CanvasLayer/Control/TextureRect2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b42tu"]
+resource_name = "fade"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Balloon/CanvasLayer/Control/TextureRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.14865091, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Balloon/CanvasLayer/Control/TextureRect2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.14865091, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1vlso"]
+_data = {
+&"RESET": SubResource("Animation_do0et"),
+&"fade": SubResource("Animation_b42tu")
+}
+
+[node name="ExampleBalloon" type="CanvasLayer"]
+script = ExtResource("1_36de5")
+
+[node name="Balloon" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_qq3yp")
+
+[node name="MarginContainer" type="MarginContainer" parent="Balloon"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -267.0
+offset_right = -447.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="Balloon/MarginContainer"]
+clip_children = 2
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_1vlso")
+
+[node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = -5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_constants/outline_size = 11
+theme_override_fonts/normal_font = ExtResource("2_1vlso")
+theme_override_fonts/bold_font = ExtResource("4_1vlso")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Character"
+fit_content = true
+scroll_active = false
+
+[node name="DialogueLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_a8ve6")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("4_1vlso")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fxkot")
+text = "Dialogue..."
+seconds_per_step = 0.03
+
+[node name="Control" type="Control" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 10)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Progress" type="Polygon2D" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Control"]
+unique_name_in_owner = true
+position = Vector2(-24, 0)
+polygon = PackedVector2Array(0, 0, 10, 10, 20, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Control"]
+libraries = {
+&"": SubResource("AnimationLibrary_1337t")
+}
+autoplay = "progress"
+
+[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" node_paths=PackedStringArray("response_template")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 722.0
+offset_top = -252.0
+offset_right = -34.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 20
+alignment = 1
+script = ExtResource("3_72ixx")
+response_template = NodePath("ResponseExample")
+
+[node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_b42tu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nily6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_do0et")
+text = "Response example"
+script = ExtResource("4_nily6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Balloon"]
+layer = -2
+
+[node name="Control" type="Control" parent="Balloon/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="ColorRect" parent="Balloon/CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 45.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect2" type="ColorRect" parent="Balloon/CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[node name="typewriter" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_do0et")
+pitch_scale = 2.16
+
+[node name="button_sound" type="AudioStreamPlayer" parent="." groups=["sound_button"]]
+unique_name_in_owner = true
+stream = ExtResource("5_b42tu")
+volume_db = -10.0
+bus = &"UI"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1vlso")
+}
+autoplay = "fade"
+
+[connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
+[connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
+[connection signal="mouse_entered" from="Balloon/ResponsesMenu/ResponseExample" to="Balloon/ResponsesMenu/ResponseExample" method="_on_mouse_entered"]

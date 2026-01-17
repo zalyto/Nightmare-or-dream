@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://chu6q87aiheo4"]
+
+[ext_resource type="Script" uid="uid://q0r7swkcqvle" path="res://Scripts/area_interior.gd" id="1_eibgv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_swsix"]
+
+[node name="area_interior" type="Area3D"]
+script = ExtResource("1_eibgv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_swsix")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

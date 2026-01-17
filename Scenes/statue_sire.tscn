@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=4 uid="uid://nmyoburaykd5"]
 
 [ext_resource type="Material" uid="uid://c2u0d71yagh02" path="res://resources/materials/stone.tres" id="1_fr2xc"]
-[ext_resource type="Texture2D" uid="uid://brnwoiyh87eo0" path="res://assets/models/PNJ/pnj1/Happy Idle_0.png" id="2_uiuib"]
-[ext_resource type="Texture2D" uid="uid://b2aafbs2tmf54" path="res://assets/models/PNJ/pnj1/Happy Idle_2.png" id="3_44wws"]
+[ext_resource type="Texture2D" uid="uid://brnwoiyh87eo0" path="res://assets/models/PNJ/sire/Happy Idle_0.png" id="2_uiuib"]
+[ext_resource type="Texture2D" uid="uid://b2aafbs2tmf54" path="res://assets/models/PNJ/sire/Happy Idle_2.png" id="3_44wws"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yqqvo"]
 resource_name = "Knight_MAT2"

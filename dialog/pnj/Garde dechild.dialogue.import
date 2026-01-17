@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c6m6545hwsj7g"
+path="res://.godot/imported/Garde dechild.dialogue-288ef3969f5915fa253e1260e8c91a9a.tres"
+
+[deps]
+
+source_file="res://dialog/pnj/Garde dechild.dialogue"
+dest_files=["res://.godot/imported/Garde dechild.dialogue-288ef3969f5915fa253e1260e8c91a9a.tres"]
+
+[params]
+
+defaults=true

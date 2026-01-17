@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dipj0dnwcu3h3"]
+[gd_scene load_steps=23 format=4 uid="uid://dipj0dnwcu3h3"]
 
 [ext_resource type="Material" uid="uid://b3uhrde53umn7" path="res://resources/materials/MAT_wall_wood.tres" id="1_1l0ru"]
 [ext_resource type="Material" uid="uid://bekop88d10ubu" path="res://resources/materials/metal.tres" id="2_q1b00"]
@@ -66,6 +66,9 @@ shadow_mesh = SubResource("ArrayMesh_6apli")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yhjhg"]
 size = Vector3(1.3660523, 0.5410156, 0.35793456)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_npb13"]
+size = Vector3(1.3660523, 0.1352539, 0.35793456)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qx5h3"]
 _surfaces = [{
@@ -274,6 +277,10 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0044371486, 0.7294922, -0.004626438)
 shape = SubResource("BoxShape3D_yhjhg")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0044371486, 0.064946115, -0.004626438)
+shape = SubResource("BoxShape3D_npb13")
+
 [node name="left" type="StaticBody3D" parent="." groups=["interacteble"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5620791, 0.18960169, 0.15450609)
 script = ExtResource("3_q1b00")
@@ -313,7 +320,7 @@ mesh = SubResource("ArrayMesh_wk873")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="right"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.246, 0.093, -0.004)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24599999, 0.092999995, -0.003999993)
 shape = SubResource("BoxShape3D_3u62d")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="right"]

@@ -2,14 +2,28 @@
 
 [ext_resource type="Script" uid="uid://biqtqdp3hk0lo" path="res://Scripts/pnj_base.gd" id="1_rdhvb"]
 [ext_resource type="FontFile" uid="uid://ck6feg3j5qrdx" path="res://assets/fonts/DharmaGothicE_ExBold_R.otf" id="2_b6u2r"]
-[ext_resource type="AudioStream" uid="uid://0v0gggke7h03" path="res://assets/audio/sfx/hurt.wav" id="3_8key8"]
+[ext_resource type="AudioStream" uid="uid://blyu55x55oe3o" path="res://assets/audio/sfx/NOTIF_POP RAPIDE.mp3" id="3_8key8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7r1o1"]
-radius = 0.2
-height = 1.7082093
+radius = 0.24169922
+height = 1.7575014
 
 [node name="PNJ_BASE" type="StaticBody3D" groups=["interacteble"]]
+process_mode = 3
 script = ExtResource("1_rdhvb")
+movement_rule = Array[Dictionary]([{
+"position": Vector3(0, 0, 0),
+"rotation": Vector3(0, 0, 0),
+"state": 0
+}, {
+"position": Vector3(0, 0, 0),
+"rotation": Vector3(0, 0, 0),
+"state": 0
+}, {
+"position": Vector3(0, 0, 0),
+"rotation": Vector3(0, 0, 0),
+"state": 0
+}])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.9621929, 0, 0, 0, 0.9621929, 0, 0, 0, 0.9621929, 0, 0.8298738, 0)
@@ -30,6 +44,7 @@ autowrap_mode = 2
 
 [node name="neck" type="Marker3D" parent="."]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3002938, 0)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_8key8")

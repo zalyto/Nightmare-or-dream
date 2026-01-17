@@ -1,0 +1,33 @@
+~ start
+Inspecteur Gaga: Eh bien, eh bien… qu’avons-nous ici ? Un petit curieux qui veut se mêler des affaires des grands ?
+~ question
+- Que se passe-t-il dans le village ? 🕵️‍♂️
+	Moi: Inspecteur Gaga, que se passe-t-il exactement ?
+	Inspecteur Gaga: Un kidnapping, bien sûr. Mais pas de panique, je gère tout. Je suis l’homme le plus compétent de ce village !
+	Moi: Bien sur...
+	=> question
+- Qui a ete kidnaper ? 🤨
+	Moi: Qui a ete kidnaper ?
+	Inspecteur Gaga: Les parent du sire tu n'est pas au courant ?
+	Moi: Non c'est horrible qui les a kidnaper ?
+	Inspecteur Gaga: ça je ne sais pas sinon il serais deja en prison mais je suis charger d'enqueter dessus pas de panique
+	Moi: bonne chance alors
+	=> question
+- Quand a eu lieux le kidnapping ? 🤔
+	Moi: Quand a eu lieux le kidnapping ?
+	Inspecteur Gaga: et bien cette nuit !
+	Moi: ah bon 
+	=> question
+- Comment allez vous enqueter ? 🤔
+	Moi: Comment allez vous enqueter ?
+	Inspecteur Gaga: Et bien je vais commencer pare allez sur le lien du crime
+	Moi: Ah bon, et c'est ou ?
+	Inspecteur Gaga: Je ne te le dirais pas.
+	Inspecteur Gaga: Personne ne dois savoir que le crime a eu lieux chez le sire.
+	Moi: d'accord je ne le dirais a personne 😅
+	Inspecteur Gaga: ???
+	=> question
+- Au revoir ! ➜] 
+	Moi: Je dois y aller.
+	Inspecteur Gaga: Très bien… mais garde les yeux ouverts. Et surtout, reste loin des ennuis !
+	=> END

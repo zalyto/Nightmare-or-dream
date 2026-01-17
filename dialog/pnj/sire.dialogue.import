@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bfod64dtuoyw5"
+path="res://.godot/imported/sire.dialogue-83a20a5f2213759ee28def97aa4daaab.tres"
+
+[deps]
+
+source_file="res://dialog/pnj/sire.dialogue"
+dest_files=["res://.godot/imported/sire.dialogue-83a20a5f2213759ee28def97aa4daaab.tres"]
+
+[params]
+
+defaults=true

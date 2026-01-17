@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbtb0hqf85bf0"]
+
+[ext_resource type="Script" uid="uid://dm105qswhswqw" path="res://Scripts/affiche.gd" id="1_1akvv"]
+[ext_resource type="Texture2D" uid="uid://cq7o0toecmrpj" path="res://assets/textures/new affiche.png" id="2_1akvv"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_snm8w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1akvv"]
+transparency = 1
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("2_1akvv")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ts0o2"]
+size = Vector3(0.47702026, 0.6754761, 0.13742447)
+
+[node name="affiche" type="StaticBody3D" groups=["interacteble"]]
+script = ExtResource("1_1akvv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.71, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("QuadMesh_snm8w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_1akvv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0026032925, 0.004119873, 0.064935684)
+shape = SubResource("BoxShape3D_ts0o2")

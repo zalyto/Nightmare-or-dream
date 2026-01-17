@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c7w01ncxdhlbw"
+path="res://.godot/imported/Lenny.dialogue-5f7f90f4fc97c3f18ce8348b9f3e88b0.tres"
+
+[deps]
+
+source_file="res://dialog/pnj/Lenny.dialogue"
+dest_files=["res://.godot/imported/Lenny.dialogue-5f7f90f4fc97c3f18ce8348b9f3e88b0.tres"]
+
+[params]
+
+defaults=true

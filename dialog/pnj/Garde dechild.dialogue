@@ -1,0 +1,22 @@
+~ start
+Garde Dechild: Hé toi ! Tu n’as rien à faire ici si ce n’est pas pour observer.
+~ question
+- Avez-vous vu quelque chose d’étrange ? 👮
+	Moi: Vous avez vu quelque chose la nuit dernière ?
+	Garde Dechild: J’étais parti pisser… mais quand je suis revenu, des traces de pas m’ont fait tiquer. Très étranges.
+	Moi: Merci, ça peut aider pour l’enquête.
+	=> question
+- Les villageois ont peur ? 😟
+	Moi: Le village est paniqué…
+	Garde Dechild: Oui… même nous, les gardes, on n’est pas tranquilles. Les gens se méfient de tout.
+	Moi: Compris.
+	=> question
+- Puis-je vous aider ? 🤔
+	Moi: Je peux vous aider pour quelque chose ?
+	Garde Dechild: Hum… si tu trouves des indices, rapporte-les. Mais reste loin des ennuis.
+	Moi: D’accord.
+	=> question
+- Au revoir ! ➜] 
+	Moi: Je dois y aller.
+	Garde Dechild: Va, petit, et fais attention.
+	=> END

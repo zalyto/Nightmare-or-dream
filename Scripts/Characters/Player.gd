@@ -6,12 +6,12 @@ const ANIMATION_BLEND : float = 5.0
 var snap_vector : Vector3 = Vector3.DOWN
 var speed : float
 var current_blend_position = Vector2.ZERO
-var blend_speed = 10
+var blend_speed = 5
 var footstep_timer := 0.0
 var step_interval := 0.5 # une étape toutes les 0.3 secondes
 
 var in_cinematique: bool = false
-
+var is_in_interior := false
 @export_group("Movement variables")
 @export var walk_speed : float = 2.0
 @export var run_speed : float = 5.0
@@ -27,41 +27,54 @@ var in_cinematique: bool = false
 @onready var jump_sound: AudioStreamPlayer3D = $sound/jump_sound
 @onready var failling_sound: AudioStreamPlayer3D = $sound/failling_sound
 @onready var pos_processe: MeshInstance3D = $tete/secouse/SpringArmPivot/CameraFPV/PosProcesse
+@onready var simplegrass: MeshInstance3D = $simplegrass
+
 
 func _ready() -> void:
-	
+	simplegrass.show()
 	#enable pos processe
 	pos_processe.show()
 	pass
+	
 func _physics_process(delta):
-	if in_cinematique:
-		return
+	SimpleGrass.set_player_position(global_position)
 	
+
+
 	var move_direction : Vector3 = Vector3.ZERO
-	move_direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
-	move_direction.z = Input.get_action_strength("down") - Input.get_action_strength("up")
-	move_direction = move_direction.rotated(Vector3.UP, player.rotation.y)
+	if not in_cinematique and not Ui.in_dialog:
+		
 	
+		move_direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
+		move_direction.z = Input.get_action_strength("down") - Input.get_action_strength("up")
+		move_direction = move_direction.normalized()
+		
+		move_direction = move_direction.rotated(Vector3.UP, player.rotation.y)
+		
 	var input_dir = Vector2(
 		Input.get_axis("left", "right"),
 		Input.get_axis("up", "down")
 	)
-	
-	
-	
-	
 	
 	var target_speed = 0.0
 	
 	if not input_dir:
 		speed = 0.0
 	else:
+		if Input.is_action_just_pressed("run"):
+			if is_in_interior:
+				if not Ui.queue_msg.has("vous ne pouver pas courire a l'interieur d'un batiment !"):
+					Ui.feedback("vous ne pouver pas courire a l'interieur d'un batiment !")
 		if Input.is_action_pressed("run"):
-			target_speed = run_speed
+			if is_in_interior:
+				target_speed = walk_speed
+			else:
+				target_speed = run_speed
 		else:
 			target_speed = walk_speed 
 		if velocity == Vector3.ZERO:
-			target_speed = walk_speed  
+			target_speed = walk_speed
+
 
 	# Fait la transition en douceur entre la vitesse actuelle et la vitesse cible
 	speed = lerp(speed, target_speed, delta * 2.0)
@@ -75,16 +88,17 @@ func _physics_process(delta):
 	
 	
 	
-	var just_landed := is_on_floor() and snap_vector == Vector3.ZERO
-	var is_jumping := is_on_floor() and Input.is_action_just_pressed("jump")
-	if is_jumping:
-		velocity.y = jump_strength
-		snap_vector = Vector3.ZERO
-		jump_sound.play()	
-	elif just_landed:
-		snap_vector = Vector3.DOWN
-	if !is_jumping:
-		velocity.y -= gravity * delta
+	#var just_landed := is_on_floor() and snap_vector == Vector3.ZERO
+	#var is_jumping := is_on_floor() and Input.is_action_just_pressed("jump") and not in_cinematique and not Ui.in_dialog
+	#if is_jumping:
+		#velocity.y = jump_strength
+		#snap_vector = Vector3.ZERO
+		#jump_sound.play()	
+		#
+	#elif just_landed:
+		#snap_vector = Vector3.DOWN
+	#if !is_jumping:
+	velocity.y -= gravity * delta
 	
 	apply_floor_snap()
 	move_and_slide()
@@ -114,6 +128,15 @@ func _physics_process(delta):
 	else:
 		failling_sound.stop()
 
+func _process(_delta: float) -> void:
+	if in_cinematique:
+		return
+	if Ui.in_dialog == true:
+		%cam_dialog.look_at(CinematiqueCamera.pnj_talking_pos+ Vector3(0.0, -0.2, 0.0))
+		%cam_dialog.current = true
+	else:
+		%cam_dialog.current = false
+		my_camera.current = true
 func animate(delta):
 	if is_on_floor():
 		animator.set("parameters/ground_air_transition/transition_request", "grounded")
@@ -140,3 +163,7 @@ func animate(delta):
 	
 	# Si on est en l'air mais qu'on ne tombe pas (par exemple pendant un saut)
 	# on peut ne rien faire, ou jouer une autre animation
+
+func in_interior(base:bool):
+	is_in_interior = base
+	print("player is in house: ",is_in_interior)

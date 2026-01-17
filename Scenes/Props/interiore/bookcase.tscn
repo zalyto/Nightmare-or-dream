@@ -16,10 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://btytsykwho77g" path="res://assets/models/props3/BookGroup_Small_2.gltf" id="12_h638q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tt7h1"]
-size = Vector3(1.4, 1.7250977, 0.38739014)
+size = Vector3(1.4, 1.6394043, 0.38739014)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7n7ni"]
-size = Vector3(1.4, 0.4519043, 0.38739014)
+size = Vector3(1.4, 0.30831146, 0.38739014)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jc4hs"]
 _surfaces = [{
@@ -286,11 +286,11 @@ _data = {
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 1.6374512, -0.017486572)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 1.6802979, -0.017486572)
 shape = SubResource("BoxShape3D_tt7h1")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0.23088336, -0.017486572)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0.15908694, -0.017486572)
 shape = SubResource("BoxShape3D_7n7ni")
 
 [node name="Bookcase_2_006" type="MeshInstance3D" parent="StaticBody3D"]

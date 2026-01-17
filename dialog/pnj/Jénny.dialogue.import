@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bxr6a8jsoy6c7"
+path="res://.godot/imported/Jénny.dialogue-63fb6c4f93b02a7c279cacac87642fcc.tres"
+
+[deps]
+
+source_file="res://dialog/pnj/Jénny.dialogue"
+dest_files=["res://.godot/imported/Jénny.dialogue-63fb6c4f93b02a7c279cacac87642fcc.tres"]
+
+[params]
+
+defaults=true

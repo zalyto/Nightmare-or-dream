@@ -14,11 +14,11 @@ extends Control
 @onready var grid: GridContainer = %Gridinventory
 
 #FEEDBACK
-@onready var labelfeedback: Label = $HUD/Control_FB/MarginContainer_FB/feedback
-@onready var Control_FB: Control = $HUD/Control_FB
-@onready var animation_player: AnimationPlayer = $HUD/Control_FB/AnimationPlayer
-@onready var feedback_pop: AudioStreamPlayer = $HUD/Control_FB/feedbackPop
-@onready var timer: Timer = $HUD/Control_FB/Timer
+@onready var labelfeedback: Label = $HUD/CanvasLayer/Control_FB/MarginContainer_FB/feedback
+@onready var Control_FB: Control = $HUD/CanvasLayer/Control_FB
+@onready var animation_player: AnimationPlayer = $HUD/CanvasLayer/Control_FB/AnimationPlayer
+@onready var feedback_pop: AudioStreamPlayer = $HUD/CanvasLayer/Control_FB/feedbackPop
+@onready var timer: Timer = $HUD/CanvasLayer/Control_FB/Timer
 
 var queue_msg: Array[String]
 var queue_duration: Array[float]
@@ -40,28 +40,42 @@ var option: bool = false
 @onready var label_acte: RichTextLabel = $acte/label_acte
 @onready var anim_acte: AnimationPlayer = $acte/label_acte/Anim_acte
 
+#var
+var in_dialog := false
+var in_menu_principal = true
+
+func hide_ui():
+
+	$HUD.hide()
+	$menu.hide()
+	$ST_CanvasLayer.hide()
+	$acte.hide()
+	print("hide ui")
+	
+func show_ui():
+	$HUD.show()
+	$ST_CanvasLayer.show()
+	$acte.show()
+	print("show ui")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	idx = tab_bar.current_tab
-	menu.visible = false
 	update_tab()
 	Control_FB.hide()
 	option_panel.visible = option
 	mainpanel.visible = !option
 	anim_acte.play("RESET")
-
+	menu.visible = false
+	menu_visible()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	
+	if in_menu_principal:
+		return
 	if occuper == false and not queue_msg.is_empty():
 		draw_feedback(queue_msg.pop_front(), queue_duration.pop_front())
-	
-	if Input.is_action_just_pressed("escape"):
-		menu.visible = not menu.visible
-		if !menu.visible:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			
 	if menu.visible:
 		hud.hide()
@@ -76,14 +90,27 @@ func _process(_delta: float) -> void:
 		hud.show()
 
 func _input(event):
+	if in_menu_principal:
+		return
 	# Gère la capture de la souris
 	if event.is_action_pressed("escape" ):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		menu.visible = not menu.visible
+		menu_visible()
 		refresh()
-	
+		
 	if event.is_action_pressed("click") and !menu.visible:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
+		menu_visible()
+		
+func menu_visible():
+	if menu.visible:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	else:
+		if in_dialog:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		elif in_menu_principal == false:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		
+		
 #TAB-------------------------------------------------
 func _on_tab_bar_tab_changed(tab: int) -> void:
 	idx = tab
@@ -108,7 +135,7 @@ func update_tab():
 
 func retoure_on_reprendre_pressed() -> void:
 	menu.visible = false
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	menu_visible()
 
 func quitter_on_quitter_pressed() -> void:
 	get_tree().quit()
@@ -171,9 +198,5 @@ func acte(text: String):
 	anim_acte.play("fade")
 	await anim_acte.animation_finished
 	anim_acte.play("RESET")
-	
-	
-	
-	
 	
 	

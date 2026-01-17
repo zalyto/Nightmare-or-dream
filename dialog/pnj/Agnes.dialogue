@@ -1,0 +1,24 @@
+~ start
+Agnes Levains: Bonjour jeune homme !
+Moi: bonjour madame
+Agnes Levains: tu ne devrais pas trainer tout seul apres ce qu'il c'est passée cette nuit 
+~ question
+- Avez-vous vu quelque chose cette nuit ? 🍞
+	Moi: Vous avez remarqué quelque chose d’étrange ?
+	Agnes Levains: Juste des bruits… mais je n’ai pas osé sortir. Trop de vent et de mystère.
+	Moi: D’accord, merci.
+	=> question
+- Que savez-vous du kidnapping ? 😨
+	Moi: Vous savez ce qui s’est passé ?
+	Agnes Levains: Pas grand-chose… juste des cris et des portes qui claquent. Les adultes parlent beaucoup.
+	Moi: Je vais enquêter alors.
+	=> question
+- Je peux acheter du pain ? 🥖
+	Moi: Je peux acheter un pain ?
+	Agnes Levains: Bien sûr, petit ! Rien de mieux qu’un pain chaud pour réfléchir.
+	Moi: Merci !
+	=> question
+- Au revoir ! ➜] 
+	Moi: Je dois y aller.
+	Agnes Levains: Prends soin de toi, jeune aventurier !
+	=> END

@@ -1,26 +1,20 @@
-[gd_scene load_steps=26 format=3 uid="uid://cdk3ckgwics2u"]
+[gd_scene load_steps=29 format=3 uid="uid://cdk3ckgwics2u"]
 
 [ext_resource type="Theme" uid="uid://dm4cuttmnq77h" path="res://resources/Themes/UI.tres" id="1_ddisk"]
 [ext_resource type="Script" uid="uid://bn7o2nxvvf1ip" path="res://Scripts/ui.gd" id="2_qdvrb"]
 [ext_resource type="Script" uid="uid://7i820psocen5" path="res://Scripts/minimaps.gd" id="3_2246s"]
-[ext_resource type="Texture2D" uid="uid://0vepmq4camq8" path="res://assets/textures/carte.png" id="3_nf4gj"]
+[ext_resource type="Script" uid="uid://1xsd8refbv8i" path="res://Scripts/texture_crossair.gd" id="4_3r70p"]
+[ext_resource type="Texture2D" uid="uid://b87regfkrst2l" path="res://assets/sprites/ui/activate.tres" id="4_8fs27"]
 [ext_resource type="AudioStream" uid="uid://c8owd0agfcer3" path="res://assets/audio/sfx/UI/INTERFACE_BOUTON_POP.mp3" id="4_mmixe"]
 [ext_resource type="Script" uid="uid://ba5blyu4r4uw7" path="res://Scripts/tab_bar.gd" id="4_ryf15"]
 [ext_resource type="Script" uid="uid://u4s22cgr1865" path="res://Scripts/bouton.gd" id="4_smcll"]
 [ext_resource type="FontFile" uid="uid://ddmi47ttiep8p" path="res://assets/fonts/Cinzel-Medium.ttf" id="5_4vbiv"]
 [ext_resource type="AudioStream" uid="uid://d2wps5e87uify" path="res://assets/audio/sfx/JDSherbert - Ultimate UI SFX Pack - Cursor - 4.mp3" id="6_smcll"]
 [ext_resource type="AudioStream" uid="uid://bdqiqvkyrhvjh" path="res://assets/audio/music/mixkit-zay-zay-309.mp3" id="9_mmixe"]
+[ext_resource type="Texture2D" uid="uid://c4sdga8qrgcde" path="res://assets/textures/{03CEF425-78D4-4E6D-A1DD-689FD51222DF}.png" id="10_8fs27"]
 [ext_resource type="FontFile" uid="uid://c26rj3bh35qi4" path="res://assets/fonts/MontserratAlternates-Regular.otf" id="10_nt8jn"]
 [ext_resource type="PackedScene" uid="uid://di1yncnaa65eb" path="res://Scenes/ui_option.tscn" id="11_g0wmg"]
-
-[sub_resource type="Gradient" id="Gradient_6vcvc"]
-offsets = PackedFloat32Array(0, 0.48104265, 0.49526066, 0.5947867, 0.6042654)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ax5sy"]
-gradient = SubResource("Gradient_6vcvc")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
+[ext_resource type="Script" uid="uid://c24v6iad2usu5" path="res://Scripts/label_SS.gd" id="15_whq80"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7pk6"]
 bg_color = Color(0, 0, 0, 0.5254902)
@@ -202,6 +196,15 @@ _data = {
 &"hide": SubResource("Animation_g0wmg")
 }
 
+[sub_resource type="Gradient" id="Gradient_heqfu"]
+offsets = PackedFloat32Array(0.8634752, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8fs27"]
+gradient = SubResource("Gradient_heqfu")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2246s"]
 bg_color = Color(0, 0, 0, 0)
 border_width_left = 5
@@ -215,7 +218,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0wmg"]
-bg_color = Color(0, 0, 0, 0.16078432)
+bg_color = Color(0, 0, 0, 0.3019608)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -227,6 +230,9 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 expand_margin_left = 10.0
 expand_margin_right = 10.0
+shadow_color = Color(0, 0, 0, 0.2627451)
+shadow_size = 2
+shadow_offset = Vector2(1, 1)
 
 [sub_resource type="Animation" id="Animation_8fs27"]
 length = 0.001
@@ -279,6 +285,7 @@ theme = ExtResource("1_ddisk")
 script = ExtResource("2_qdvrb")
 
 [node name="button_sound" type="AudioStreamPlayer" parent="." groups=["sound_button"]]
+unique_name_in_owner = true
 stream = ExtResource("6_smcll")
 volume_db = -10.0
 bus = &"UI"
@@ -307,8 +314,9 @@ offset_right = 5.0
 offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_ax5sy")
+texture = ExtResource("4_8fs27")
 expand_mode = 1
+script = ExtResource("4_3r70p")
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD" groups=["interaction_label"]]
 layout_mode = 1
@@ -317,10 +325,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 51.0
-offset_top = -56.0
-offset_right = 141.0
-offset_bottom = -28.0
+offset_left = 483.0
+offset_top = 295.0
+offset_right = 552.0
+offset_bottom = 313.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -331,13 +339,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_q7pk6")
 [node name="Label" type="Label" parent="HUD/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 10
 text = "INTERACTE"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Control_FB" type="Control" parent="HUD"]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="HUD"]
+
+[node name="Control_FB" type="Control" parent="HUD/CanvasLayer"]
+layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -347,7 +358,7 @@ offset_right = -136.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
-[node name="MarginContainer_FB" type="MarginContainer" parent="HUD/Control_FB"]
+[node name="MarginContainer_FB" type="MarginContainer" parent="HUD/CanvasLayer/Control_FB"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -359,33 +370,44 @@ offset_bottom = 14.0
 grow_horizontal = 0
 theme_override_constants/margin_top = 10
 
-[node name="Panel" type="Panel" parent="HUD/Control_FB/MarginContainer_FB"]
+[node name="Panel" type="Panel" parent="HUD/CanvasLayer/Control_FB/MarginContainer_FB"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mmixe")
 
-[node name="feedback" type="Label" parent="HUD/Control_FB/MarginContainer_FB"]
+[node name="feedback" type="Label" parent="HUD/CanvasLayer/Control_FB/MarginContainer_FB"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "msg feedback !"
 horizontal_alignment = 2
 
-[node name="feedbackPop" type="AudioStreamPlayer" parent="HUD/Control_FB"]
+[node name="feedbackPop" type="AudioStreamPlayer" parent="HUD/CanvasLayer/Control_FB"]
 stream = ExtResource("4_mmixe")
 volume_db = -20.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Control_FB"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/CanvasLayer/Control_FB"]
 root_node = NodePath("../MarginContainer_FB")
 libraries = {
 &"": SubResource("AnimationLibrary_g0wmg")
 }
 
-[node name="Timer" type="Timer" parent="HUD/Control_FB"]
+[node name="Timer" type="Timer" parent="HUD/CanvasLayer/Control_FB"]
 one_shot = true
+
+[node name="vignette" type="TextureRect" parent="HUD"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_8fs27")
 
 [node name="menu" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
+layer = 2
 
 [node name="leftpanel" type="Panel" parent="menu"]
 custom_minimum_size = Vector2(50, 6.61)
@@ -520,7 +542,7 @@ limit_bottom = 800
 limit_smoothed = true
 
 [node name="Sprite2D" type="Sprite2D" parent="menu/mainpanel/Tab3_maps/Panel/SubViewportContainer/SubViewport/Node2D"]
-texture = ExtResource("3_nf4gj")
+texture = ExtResource("10_8fs27")
 
 [node name="Tab2_inventory" type="MarginContainer" parent="menu/mainpanel"]
 visible = false
@@ -611,10 +633,11 @@ offset_top = 80.0
 offset_right = -90.0
 offset_bottom = -87.0
 
-[node name="soutitre" type="Control" parent="." groups=["soutitre"]]
+[node name="ST_CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="soutitre" type="Control" parent="ST_CanvasLayer" groups=["soutitre"]]
 process_mode = 1
-visible = false
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -626,7 +649,7 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="soutitre"]
+[node name="MarginContainer" type="MarginContainer" parent="ST_CanvasLayer/soutitre"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -640,11 +663,11 @@ offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Panel" type="Panel" parent="soutitre/MarginContainer"]
+[node name="Panel" type="Panel" parent="ST_CanvasLayer/soutitre/MarginContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_g0wmg")
 
-[node name="Label_soutitre" type="Label" parent="soutitre/MarginContainer" groups=["label_soutitre"]]
+[node name="Label_soutitre" type="Label" parent="ST_CanvasLayer/soutitre/MarginContainer" groups=["label_soutitre"]]
 modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -686,6 +709,15 @@ horizontal_alignment = 1
 libraries = {
 &"": SubResource("AnimationLibrary_whq80")
 }
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 8.0
+offset_right = 199.0
+offset_bottom = 73.0
+text = "zeazehjzaeiuza"
+script = ExtResource("15_whq80")
 
 [connection signal="mouse_entered" from="menu/leftpanel/Container/HBoxContainer/Reprendre" to="menu/leftpanel/Container/HBoxContainer/Reprendre" method="_on_mouse_entered"]
 [connection signal="pressed" from="menu/leftpanel/Container/HBoxContainer/Reprendre" to="." method="retoure_on_reprendre_pressed"]

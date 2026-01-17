@@ -1,0 +1,22 @@
+~ start
+Alphonse Dansletas: Ah… un enfant… autrefois, j’étais jeune comme toi… maintenant… tout est triste.
+~ question
+- Vous savez quelque chose sur le kidnapping ? 😢
+	Moi: Vous avez vu quelque chose cette nuit ?
+	Alphonse Dansletas: J’ai vu des ombres courir… mais je n’ai pas osé bouger… la vieillesse rend prudent.
+	Moi: Merci… je vais enquêter alors.
+	=> question
+- Pourquoi êtes-vous si triste ? 😔
+	Moi: Vous avez l’air bien déprimé…
+	Alphonse Dansletas: La vie… la vie est un éternel regret. Même mes moutons me regardent avec pitié.
+	Moi: Ah… je vois…
+	=> question
+- Vous voulez que je vous aide ? 🐑
+	Moi: Je peux vous aider à garder les moutons ?
+	Alphonse Dansletas: Ha… si seulement… merci, jeune ami… c’est gentil.
+	Moi: D’accord.
+	=> question
+- Au revoir ! ➜] 
+	Moi: Je dois y aller.
+	Alphonse Dansletas: Va… et fais que ce village devienne meilleur.
+	=> END

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b1lmnvw6snyte"]
+[gd_scene load_steps=18 format=4 uid="uid://b1lmnvw6snyte"]
 
 [ext_resource type="Script" uid="uid://bdr34117sxqs0" path="res://Scripts/door.gd" id="1_k65k4"]
 [ext_resource type="Material" uid="uid://b3uhrde53umn7" path="res://resources/materials/MAT_wall_wood.tres" id="2_lnww3"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://biff0qeli8ekd" path="res://assets/audio/sfx/door/door_open.mp3" id="4_ddfkg"]
 [ext_resource type="AudioStream" uid="uid://dhwyflovr4yqs" path="res://assets/audio/sfx/door/321087__benjaminnelan__door-locked.wav" id="4_k4vsv"]
 [ext_resource type="AudioStream" uid="uid://cs801dew7dbl0" path="res://assets/audio/sfx/door/door_close.mp3" id="5_drus2"]
+[ext_resource type="AudioStream" uid="uid://t8xhe6ukcjg2" path="res://assets/audio/sfx/door/door-unlocking.mp3" id="7_drus2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_awui1"]
 size = Vector3(0.2, 2.5, 1.3000001)
@@ -145,5 +146,11 @@ bus = &"effect"
 [node name="audio_locked" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.10977395, 0, -0.7000037)
 stream = ExtResource("4_k4vsv")
+volume_db = -10.0
+bus = &"effect"
+
+[node name="audio_unlocking" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.10977395, 0, -0.7000037)
+stream = ExtResource("7_drus2")
 volume_db = -10.0
 bus = &"effect"
