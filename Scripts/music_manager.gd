@@ -2,7 +2,7 @@ extends Node
 
 @onready var Player := AudioStreamPlayer.new()
 var music := load("res://assets/audio/music/synth_type.mp3")
-var base_volume = -15.0
+var base_volume = -25.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_child(Player)

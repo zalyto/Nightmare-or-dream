@@ -121,6 +121,7 @@ theme_override_constants/margin_right = 925
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 14
 
 [node name="play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -178,12 +179,8 @@ grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_ni8uq")
 
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/play" to="MarginContainer/VBoxContainer/play" method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/option" to="MarginContainer/VBoxContainer/option" method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/option" to="." method="_on_option_pressed"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/credit" to="MarginContainer/VBoxContainer/credit" method="_on_mouse_entered"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/quitter" to="MarginContainer/VBoxContainer/quitter" method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/quitter" to="." method="_on_quitter_pressed"]
 [connection signal="pressed" from="option/back" to="." method="_on_back_pressed"]
 

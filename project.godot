@@ -92,6 +92,7 @@ menu_principal=""
 player=""
 music=""
 cycle_day_night=""
+chant_ble=""
 
 [input]
 

@@ -23,27 +23,47 @@ var is_in_interior := false
 @onready var spring_arm_pivot : Node3D = $tete/secouse/SpringArmPivot
 @onready var animator : AnimationTree = $AnimationTree
 @onready var my_camera = %CameraFPV
-@onready var footstep_sound: AudioStreamPlayer3D = $sound/footstep_sound
+@onready var footstep_path: AudioStreamPlayer3D = $sound/footstep_sound
 @onready var jump_sound: AudioStreamPlayer3D = $sound/jump_sound
 @onready var failling_sound: AudioStreamPlayer3D = $sound/failling_sound
 @onready var pos_processe: MeshInstance3D = $tete/secouse/SpringArmPivot/CameraFPV/PosProcesse
 @onready var simplegrass: MeshInstance3D = $simplegrass
+@onready var gpu_particles_3d: GPUParticles3D = $GPUParticles3D
+@onready var chant_de_ble_sound: AudioStreamPlayer3D = $chant_de_ble
 
-
+var on_chant_de_ble := false
 func _ready() -> void:
 	simplegrass.show()
 	#enable pos processe
 	pos_processe.show()
 	pass
 	
+func chant_de_ble_enterred():
+	on_chant_de_ble = true
+
+		
+func chant_de_ble_exited():
+	on_chant_de_ble = false
+
 func _physics_process(delta):
-	SimpleGrass.set_player_position(global_position)
 	
-
-
+	if !velocity:
+		chant_de_ble_sound.stop()
+		
+	if velocity and on_chant_de_ble == true:
+		if !chant_de_ble_sound.playing:
+			chant_de_ble_sound.play()
+	if velocity and on_chant_de_ble == false:
+		chant_de_ble_sound.stop()
+		
+	SimpleGrass.set_player_position(global_position)
 	var move_direction : Vector3 = Vector3.ZERO
 	if not in_cinematique and not Ui.in_dialog:
 		
+		if velocity:
+			gpu_particles_3d.emitting = true
+		else:
+			gpu_particles_3d.emitting = false
 	
 		move_direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 		move_direction.z = Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -115,7 +135,7 @@ func _physics_process(delta):
 			
 		footstep_timer -= delta
 		if footstep_timer <= 0.0:
-			footstep_sound.play()
+			footstep_path.play()
 			footstep_timer = step_interval
 	else:
 		footstep_timer = 0.0
@@ -145,12 +165,12 @@ func animate(delta):
 			if speed >= run_speed -1 and speed <= run_speed +1: # si speed est == a run_speed avec une marge de 1
 				animator.set("parameters/iwr_blend/blend_amount", lerp(animator.get("parameters/iwr_blend/blend_amount"), 1.0, delta * ANIMATION_BLEND))
 				step_interval = 0.3
-				footstep_sound.pitch_scale = randf_range(speed/5 +1, speed/5 +2)
+				footstep_path.pitch_scale = randf_range(speed/5 +1, speed/5 +2)
 				#animation de run
 			else:
 				animator.set("parameters/iwr_blend/blend_amount", lerp(animator.get("parameters/iwr_blend/blend_amount"), 0.0, delta * ANIMATION_BLEND))
 				step_interval = 0.6
-				footstep_sound.pitch_scale = randf_range(speed/5 +1, speed/5 +2)
+				footstep_path.pitch_scale = randf_range(speed/5 +1, speed/5 +2)
 				#animation de walk
 		else:
 			animator.set("parameters/iwr_blend/blend_amount", lerp(animator.get("parameters/iwr_blend/blend_amount"), -1.0, delta * ANIMATION_BLEND))

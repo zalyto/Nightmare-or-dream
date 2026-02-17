@@ -1,4 +1,4 @@
-[gd_scene load_steps=215 format=4 uid="uid://bk4s1jaxy71mk"]
+[gd_scene load_steps=218 format=4 uid="uid://bk4s1jaxy71mk"]
 
 [ext_resource type="Texture2D" uid="uid://l8ogcd6au10p" path="res://assets/textures/sky_23_2k.png" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://csfiogkn18pot" path="res://assets/models/maps/map.blend" id="1_jjgbg"]
@@ -9,7 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://dvqtd455vyxr8" path="res://assets/audio/cinematique/huh-sfx-418238.mp3" id="3_urine"]
 [ext_resource type="AudioStream" uid="uid://blwwc17dnn7c" path="res://assets/audio/cinematique/＊Snore＊ Mimimimimimimi Sound Effect (Cartoon Sleeping Sound Effect).mp3" id="4_5vy51"]
 [ext_resource type="Shader" uid="uid://pn80x7vapsyx" path="res://shaders/outline.gdshader" id="4_jjvhh"]
-[ext_resource type="AudioStream" uid="uid://cq0kge81xjo4u" path="res://assets/audio/sfx/anbiance/ambience-forest-birds-wind-trees.mp3" id="4_jkdf5"]
 [ext_resource type="PackedScene" uid="uid://jbifw6dww8og" path="res://Scenes/medaillon.tscn" id="5_5vy51"]
 [ext_resource type="Shader" path="res://resources/shaders/feuille.gdshader" id="6_fg68e"]
 [ext_resource type="Texture2D" uid="uid://dnt8b6jw07nse" path="res://assets/textures/blés.png" id="6_nay3j"]
@@ -22,16 +21,15 @@
 [ext_resource type="PackedScene" uid="uid://bne7s3f6u0d8l" path="res://Scenes/Props/prop_vine_1.tscn" id="12_gsvbx"]
 [ext_resource type="Material" uid="uid://3wt0vrb82hvm" path="res://resources/materials/terrain.tres" id="12_kltya"]
 [ext_resource type="Material" uid="uid://tuyvfjudmnnu" path="res://resources/materials/stone_prison.tres" id="12_kwxat"]
+[ext_resource type="Script" uid="uid://dvtch3hkwmeyr" path="res://scripts/chant_de_blé.gd" id="13_0wopu"]
 [ext_resource type="Material" uid="uid://c2u0d71yagh02" path="res://resources/materials/stone.tres" id="13_wsu2k"]
 [ext_resource type="Material" uid="uid://bwo547lkp4yo7" path="res://resources/materials/mure_terre.tres" id="14_jkdf5"]
 [ext_resource type="Script" uid="uid://d1mpywd3kubxk" path="res://Scripts/ambiant_sound.gd" id="15_7t1gx"]
 [ext_resource type="PackedScene" uid="uid://ccf72ykcfnwgr" path="res://Scenes/Props/farm_crate_empty.tscn" id="16_1tvlp"]
 [ext_resource type="PackedScene" uid="uid://cp5w76bsyrmlb" path="res://assets/models/asset pack/piece de maison/wall.tscn" id="16_fevyy"]
-[ext_resource type="AudioStream" uid="uid://bxfyro818li1j" path="res://assets/audio/sfx/anbiance/700161__klankbeeld__field-ambiance-summer-nl-long-2.ogg" id="16_mfvrx"]
 [ext_resource type="Material" uid="uid://dki5x1vxhlxvd" path="res://resources/materials/Stone2.tres" id="16_r33sp"]
 [ext_resource type="Material" uid="uid://q0veuugo5sbl" path="res://resources/materials/MAT_wall.tres" id="16_u50mg"]
 [ext_resource type="PackedScene" uid="uid://cdsq4qbfiqyji" path="res://assets/models/asset pack/piece de maison/wall_corner.tscn" id="17_hibaj"]
-[ext_resource type="AudioStream" uid="uid://tpav46oi37lp" path="res://assets/audio/sfx/anbiance/2 Hours Ghostly Graveyard Ambience ♫ ｜ Spooky Halloween Sounds & Haunted Night Atmosphere.mp3" id="18_mfvrx"]
 [ext_resource type="PackedScene" uid="uid://68tshbicwwkj" path="res://assets/models/asset pack/piece de maison/wall_door.tscn" id="18_pdsj5"]
 [ext_resource type="PackedScene" uid="uid://clsokx6rclibp" path="res://assets/models/asset pack/piece de maison/wall_windows.tscn" id="19_ee4r6"]
 [ext_resource type="PackedScene" uid="uid://daljxiaq21vkw" path="res://assets/models/asset pack/piece de maison/roof_side.tscn" id="20_pdsj5"]
@@ -118,6 +116,7 @@
 [ext_resource type="PackedScene" uid="uid://jsiwyhy7h3f8" path="res://Scenes/key.tscn" id="102_b4xsn"]
 [ext_resource type="Script" uid="uid://jghkrml0s4f1" path="res://Scripts/cinematique_camera.gd" id="104_64lof"]
 [ext_resource type="PackedScene" uid="uid://dwcw8j8xpvxdp" path="res://Scenes/Props/interiore/barrel_holder.tscn" id="104_aok0f"]
+[ext_resource type="AudioStream" uid="uid://dladv7vgk2scq" path="res://assets/audio/sfx/tavern.mp3" id="105_na2ur"]
 [ext_resource type="PackedScene" uid="uid://dnlynumnrbqn8" path="res://assets/models/asset pack/cimetiere/door_cimetiere.tscn" id="111_3h4bx"]
 [ext_resource type="PackedScene" uid="uid://bfquhq365w55w" path="res://assets/models/asset pack/cimetiere/wall_cimetiere.tscn" id="112_xg142"]
 [ext_resource type="PackedScene" uid="uid://cdtpvkmsv4tt3" path="res://Scenes/pnj/inspecter_gaga.tscn" id="119_xjjvj"]
@@ -711,6 +710,9 @@ data = {
 "width": 32
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rlvdk"]
+size = Vector3(7.4, 1, 9.3)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1tvlp"]
 render_priority = 0
 shader = ExtResource("6_fg68e")
@@ -907,9 +909,20 @@ shader_parameter/uv_offset = Vector2(0, 0)
 text = "cimetiere"
 font = ExtResource("54_ot5ec")
 
+[sub_resource type="Gradient" id="Gradient_rlvdk"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_t6wb6"]
+frequency = 0.0121
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_fvjqb"]
+noise = SubResource("FastNoiseLite_t6wb6")
+color_ramp = SubResource("Gradient_rlvdk")
+seamless = true
+
 [sub_resource type="FogMaterial" id="FogMaterial_cmq5c"]
 emission = Color(0.43519226, 0.4351923, 0.43519217, 1)
 edge_fade = 1.7905011
+density_texture = SubResource("NoiseTexture3D_fvjqb")
 
 [sub_resource type="BoxMesh" id="BoxMesh_3pmx8"]
 
@@ -1175,7 +1188,7 @@ script = ExtResource("1_ylsbi")
 environment = SubResource("Environment_21xkr")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.73663765, -0.53054863, 0.41938388, 0.10345295, 0.52442646, 0.8451473, -0.6683281, 0.66595376, -0.33142555, -2, 13.6417675, 0)
+transform = Transform3D(-0.73663753, -0.53054875, 0.4193839, 0.103452936, 0.5244266, 0.8451474, -0.668328, 0.6659539, -0.33142555, -2, 13.6417675, 0)
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 directional_shadow_split_1 = 0.2
@@ -1277,6 +1290,14 @@ sgt_tool_shape = {
 metadata/_custom_type_script = "uid://2juaclm8gc1n"
 metadata/SimpleGrassTextured = "2.0.5"
 
+[node name="chant de blé" type="Area3D" parent="vegetals/SimpleBlésTextured" groups=["chant_ble"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 0, 19)
+script = ExtResource("13_0wopu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="vegetals/SimpleBlésTextured/chant de blé"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20000076, 0.3, 0.25)
+shape = SubResource("BoxShape3D_rlvdk")
+
 [node name="SimpleGrassTextured2" type="MultiMeshInstance3D" parent="vegetals"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.465153, 1.3595765, 25.288248)
 material_override = SubResource("ShaderMaterial_1tvlp")
@@ -1304,16 +1325,13 @@ metadata/SimpleGrassTextured = "2.0.5"
 script = ExtResource("15_7t1gx")
 
 [node name="vent" type="AudioStreamPlayer" parent="ambiant_sound"]
-stream = ExtResource("16_mfvrx")
 volume_db = -8.0
 bus = &"ambiant"
 
 [node name="forest" type="AudioStreamPlayer" parent="ambiant_sound"]
-stream = ExtResource("4_jkdf5")
 bus = &"ambiant"
 
 [node name="cimetiere" type="AudioStreamPlayer" parent="ambiant_sound"]
-stream = ExtResource("18_mfvrx")
 volume_db = -25.0
 
 [node name="Area_village" type="Area3D" parent="ambiant_sound"]
@@ -1785,9 +1803,6 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2.3
 [node name="Torche5" parent="props" instance=ExtResource("37_jwpg7")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -6.1290407, 3.4332986, 3.9794922)
 
-[node name="Torche7" parent="props" instance=ExtResource("37_jwpg7")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20.44591, 2.4888127, 14.53362)
-
 [node name="Torche6" parent="props" instance=ExtResource("37_jwpg7")]
 transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -7.191331, 3.4332986, -5.064027)
 
@@ -2227,7 +2242,7 @@ transform = Transform3D(0.9692289, 0.068328716, 0.2364876, -0.07797521, 0.996452
 [node name="entity" type="Node3D" parent="."]
 
 [node name="Player" parent="entity" instance=ExtResource("2_bo1nx")]
-transform = Transform3D(0.2041885, 0, -0.9789316, 0, 1, 0, 0.9789316, 0, 0.2041885, -30.277594, 0.9912709, 16.374254)
+transform = Transform3D(0.2041885, 0, -0.9789316, 0, 1, 0, 0.9789316, 0, 0.2041885, -30.277596, 0.9912709, 16.374254)
 visible = false
 
 [node name="head" type="Marker3D" parent="entity/Player" groups=["head_player"]]
@@ -3544,6 +3559,13 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0705566, 3.258423, 0.973999)
 shape = SubResource("BoxShape3D_myryv")
 
+[node name="blabla" type="AudioStreamPlayer3D" parent="batiment/taverne"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
+stream = ExtResource("105_na2ur")
+volume_db = -24.489
+autoplay = true
+max_distance = 52.55
+
 [node name="house_sire" type="Node3D" parent="batiment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.064512)
 
@@ -4254,7 +4276,7 @@ transform = Transform3D(-0.9999999, 0, 8.028897e-08, 0, 0.99999994, 0, -2.881022
 transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, 3.9999943, 0.99999994, 1.6223412)
 
 [node name="Mug" parent="batiment/house_player/wall_group" instance=ExtResource("32_p4gyq")]
-transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 4.2936487, 2.0063858, -3.6190224)
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 4.293646, 2.0063858, -3.6190224)
 
 [node name="roof_group" type="Node3D" parent="batiment/house_player"]
 
@@ -4371,7 +4393,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.28
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.588065, 0.99999994, 1.042284)
 
 [node name="Chair5" parent="batiment/house_player/props" instance=ExtResource("41_p4gyq")]
-transform = Transform3D(-0.8660253, 0, -0.4999999, 0, 1, 0, 0.4999999, 0, -0.8660253, 4.28806, 0.99999994, -3.0577164)
+transform = Transform3D(-0.8660253, 0, -0.4999999, 0, 1, 0, 0.4999999, 0, -0.8660253, 4.481308, 0.99999994, -3.1545086)
 
 [node name="Chandelier" parent="batiment/house_player/props" instance=ExtResource("45_33qc4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.6880617, 5.7999997, -0.55771637)
@@ -4380,7 +4402,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.68
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -0.111932755, 2.1, 0.542284)
 
 [node name="Torche2" parent="batiment/house_player/props" instance=ExtResource("37_jwpg7")]
-transform = Transform3D(1, 0, -1.18217194e-07, 0, 1, 0, 1.18217194e-07, 0, 1, 3.488058, 2.1, -3.851017)
+transform = Transform3D(1, 0, -1.18217194e-07, 0, 1, 0, 1.18217194e-07, 0, 1, 1.4880562, 2.1, -3.851017)
 
 [node name="Chandelier2" parent="batiment/house_player/props" instance=ExtResource("45_33qc4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.0119324, 5.8, -1.957716)
@@ -4395,7 +4417,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.61
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 0.40859222, 1.0098207, 0.34228325)
 
 [node name="armoir2" parent="batiment/house_player/props" instance=ExtResource("93_nb1ia")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2.9880533, 0.99999994, -3.7649689)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2.9492683, 0.99999994, -3.7649689)
 
 [node name="Workbench" parent="batiment/house_player/props" instance=ExtResource("89_lpdpw")]
 transform = Transform3D(-1.1500001, 0, 3.4969116e-08, 0, 1, 0, -5.02681e-08, 0, -0.80000013, -4.711933, 0.99999994, -3.257719)
@@ -4458,7 +4480,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.5
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.05566597, 2, -0.957716)
 
 [node name="Node3D" parent="batiment/house_player/props" instance=ExtResource("99_t014q")]
-transform = Transform3D(0.96800005, 0, 0, 0, 0.79200006, 0, -3.5527137e-15, 0, 0.88000005, 4.6880665, 1.0000001, -3.8577156)
+transform = Transform3D(0.96800005, 0, 0, 0, 0.79200006, 0, -3.5527137e-15, 0, 0.88000005, 4.7788763, 1.0000001, -3.8577156)
 
 [node name="Bookcase3" parent="batiment/house_player/props" instance=ExtResource("87_32dfi")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.6147785, 0.99999994, 2.742281)
@@ -4527,13 +4549,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2955008, 0.51101816, -7.94
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3052225, 0.23224533, -7.9424753)
 
 [node name="rand_pos_15" type="Marker3D" parent="batiment/house_player/rand_pos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2700033, 0.24711049, -5.6117735)
+transform = Transform3D(1, 0, -5.684342e-14, 0, 1, 0, 5.684342e-14, 0, 1, -7.2218323, 0.24711049, -5.6117735)
 
 [node name="rand_pos_16" type="Marker3D" parent="batiment/house_player/rand_pos"]
-transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, -7.276951, 0.583428, -5.5866737)
+transform = Transform3D(1, 0, -2.842171e-14, 0, 1, 0, 2.842171e-14, 0, 1, -7.209486, 0.583428, -5.5866737)
 
 [node name="rand_pos_17" type="Marker3D" parent="batiment/house_player/rand_pos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2522993, 0.8724884, -5.4903307)
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, -7.1803055, 0.8724884, -5.4903307)
 
 [node name="rand_pos_18" type="Marker3D" parent="batiment/house_player/rand_pos"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.466834, 0.29894447, -2.8219457)
@@ -4595,6 +4617,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 2.4, 15.518185)
 [node name="affiche" parent="." instance=ExtResource("128_rlvdk")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 6.801004, 3.4185302, -9.365657)
 
+[connection signal="body_entered" from="vegetals/SimpleBlésTextured/chant de blé" to="vegetals/SimpleBlésTextured/chant de blé" method="_on_body_entered"]
+[connection signal="body_exited" from="vegetals/SimpleBlésTextured/chant de blé" to="vegetals/SimpleBlésTextured/chant de blé" method="_on_body_exited"]
 [connection signal="body_entered" from="ambiant_sound/Area_village" to="ambiant_sound" method="_on_area_village_body_entered"]
 [connection signal="body_entered" from="ambiant_sound/Area_forest" to="ambiant_sound" method="_on_area_forest_body_entered"]
 [connection signal="body_entered" from="ambiant_sound/Area_cimetiere" to="ambiant_sound" method="_on_area_cimetiere_body_entered"]

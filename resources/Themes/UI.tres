@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=19 format=3 uid="uid://dm4cuttmnq77h"]
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://dm4cuttmnq77h"]
 
 [ext_resource type="FontFile" uid="uid://b8vjf1oiftdmy" path="res://assets/fonts/KOMIKAX_.ttf" id="1_1ge3b"]
 
@@ -18,19 +18,12 @@ corner_radius_bottom_left = 20
 expand_margin_left = 20.0
 expand_margin_right = 20.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ge3b"]
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-expand_margin_left = 20.0
-expand_margin_right = 20.0
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbhrc"]
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+bg_color = Color(0.6120914, 0.4966328, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 expand_margin_left = 20.0
 expand_margin_right = 20.0
 
@@ -57,10 +50,10 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.8, 0.8, 0.8, 0.46666667)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 expand_margin_left = 20.0
 expand_margin_right = 20.0
 
@@ -138,7 +131,7 @@ Button/font_sizes/font_size = 20
 Button/fonts/font = ExtResource("1_1ge3b")
 Button/styles/disabled = SubResource("StyleBoxFlat_uj4ud")
 Button/styles/disabled_mirrored = SubResource("StyleBoxFlat_0chjv")
-Button/styles/focus = SubResource("StyleBoxFlat_1ge3b")
+Button/styles/focus = SubResource("StyleBoxFlat_fbhrc")
 Button/styles/hover = SubResource("StyleBoxFlat_fbhrc")
 Button/styles/hover_mirrored = SubResource("StyleBoxFlat_fmc8f")
 Button/styles/hover_pressed = SubResource("StyleBoxFlat_colcq")
